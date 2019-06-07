@@ -1,0 +1,9 @@
+/var/www/html/BionicRent/BackendSecurity.Domain/bin/Debug/netstandard2.0/BackendSecurity.Domain.deps.json
+/var/www/html/BionicRent/BackendSecurity.Domain/bin/Debug/netstandard2.0/BackendSecurity.Domain.dll
+/var/www/html/BionicRent/BackendSecurity.Domain/bin/Debug/netstandard2.0/BackendSecurity.Domain.pdb
+/var/www/html/BionicRent/BackendSecurity.Domain/obj/Debug/netstandard2.0/BackendSecurity.Domain.csprojAssemblyReference.cache
+/var/www/html/BionicRent/BackendSecurity.Domain/obj/Debug/netstandard2.0/BackendSecurity.Domain.csproj.CoreCompileInputs.cache
+/var/www/html/BionicRent/BackendSecurity.Domain/obj/Debug/netstandard2.0/BackendSecurity.Domain.AssemblyInfoInputs.cache
+/var/www/html/BionicRent/BackendSecurity.Domain/obj/Debug/netstandard2.0/BackendSecurity.Domain.AssemblyInfo.cs
+/var/www/html/BionicRent/BackendSecurity.Domain/obj/Debug/netstandard2.0/BackendSecurity.Domain.dll
+/var/www/html/BionicRent/BackendSecurity.Domain/obj/Debug/netstandard2.0/BackendSecurity.Domain.pdb

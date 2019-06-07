@@ -1,0 +1,9 @@
+/var/www/html/BionicRent/BionicRent.Domain/bin/Debug/netstandard2.0/BionicRent.Domain.deps.json
+/var/www/html/BionicRent/BionicRent.Domain/bin/Debug/netstandard2.0/BionicRent.Domain.dll
+/var/www/html/BionicRent/BionicRent.Domain/bin/Debug/netstandard2.0/BionicRent.Domain.pdb
+/var/www/html/BionicRent/BionicRent.Domain/obj/Debug/netstandard2.0/BionicRent.Domain.csprojAssemblyReference.cache
+/var/www/html/BionicRent/BionicRent.Domain/obj/Debug/netstandard2.0/BionicRent.Domain.csproj.CoreCompileInputs.cache
+/var/www/html/BionicRent/BionicRent.Domain/obj/Debug/netstandard2.0/BionicRent.Domain.AssemblyInfoInputs.cache
+/var/www/html/BionicRent/BionicRent.Domain/obj/Debug/netstandard2.0/BionicRent.Domain.AssemblyInfo.cs
+/var/www/html/BionicRent/BionicRent.Domain/obj/Debug/netstandard2.0/BionicRent.Domain.dll
+/var/www/html/BionicRent/BionicRent.Domain/obj/Debug/netstandard2.0/BionicRent.Domain.pdb

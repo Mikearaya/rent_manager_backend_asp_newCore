@@ -1,0 +1,14 @@
+/var/www/html/BionicRent/BionicRent.Persistence.Test/bin/Debug/netcoreapp2.2/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/var/www/html/BionicRent/BionicRent.Persistence.Test/bin/Debug/netcoreapp2.2/xunit.runner.reporters.netcoreapp10.dll
+/var/www/html/BionicRent/BionicRent.Persistence.Test/bin/Debug/netcoreapp2.2/xunit.runner.utility.netcoreapp10.dll
+/var/www/html/BionicRent/BionicRent.Persistence.Test/bin/Debug/netcoreapp2.2/BionicRent.Persistence.Test.deps.json
+/var/www/html/BionicRent/BionicRent.Persistence.Test/bin/Debug/netcoreapp2.2/BionicRent.Persistence.Test.runtimeconfig.json
+/var/www/html/BionicRent/BionicRent.Persistence.Test/bin/Debug/netcoreapp2.2/BionicRent.Persistence.Test.runtimeconfig.dev.json
+/var/www/html/BionicRent/BionicRent.Persistence.Test/bin/Debug/netcoreapp2.2/BionicRent.Persistence.Test.dll
+/var/www/html/BionicRent/BionicRent.Persistence.Test/bin/Debug/netcoreapp2.2/BionicRent.Persistence.Test.pdb
+/var/www/html/BionicRent/BionicRent.Persistence.Test/obj/Debug/netcoreapp2.2/BionicRent.Persistence.Test.csprojAssemblyReference.cache
+/var/www/html/BionicRent/BionicRent.Persistence.Test/obj/Debug/netcoreapp2.2/BionicRent.Persistence.Test.csproj.CoreCompileInputs.cache
+/var/www/html/BionicRent/BionicRent.Persistence.Test/obj/Debug/netcoreapp2.2/BionicRent.Persistence.Test.AssemblyInfoInputs.cache
+/var/www/html/BionicRent/BionicRent.Persistence.Test/obj/Debug/netcoreapp2.2/BionicRent.Persistence.Test.AssemblyInfo.cs
+/var/www/html/BionicRent/BionicRent.Persistence.Test/obj/Debug/netcoreapp2.2/BionicRent.Persistence.Test.dll
+/var/www/html/BionicRent/BionicRent.Persistence.Test/obj/Debug/netcoreapp2.2/BionicRent.Persistence.Test.pdb
