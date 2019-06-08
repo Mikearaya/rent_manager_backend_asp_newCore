@@ -10,6 +10,8 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BionicRent.Api.Controllers.Customers {
+
+    [Route ("api/customers")]
     public class CustomersController : Controller {
         private readonly IMediator _Mediator;
 

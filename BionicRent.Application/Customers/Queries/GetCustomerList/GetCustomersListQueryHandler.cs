@@ -39,10 +39,10 @@ namespace BionicRent.Application.Customers.Queries.GetCustomerList {
             var PageSize = (request.PageSize == 0) ? result.Count : request.PageSize;
             var PageNumber = (request.PageSize == 0) ? 1 : request.PageNumber;
 
-            result.Items = await customer.OrderBy (sortBy, sortDirection)
+            result.Items = customer.OrderBy (sortBy, sortDirection)
                 .Skip (PageNumber - 1)
                 .Take (PageSize)
-                .ToListAsync ();
+                .ToList ();
 
             return result;
 

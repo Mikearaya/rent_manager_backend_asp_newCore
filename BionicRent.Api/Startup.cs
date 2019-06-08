@@ -2,6 +2,7 @@
 using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using AccountingBackend.Api.Filters;
@@ -9,10 +10,14 @@ using BackendSecurity.Domain.Identity;
 using BackendSecurity.Persistance;
 using BionicRent.Api.Commons;
 using BionicRent.Api.Configurations;
+using BionicRent.Application.Customers.Commands.CreateCustomer;
 using BionicRent.Application.interfaces;
+using BionicRent.Application.Infrastructure;
 using BionicRent.Application.Interfaces;
 using BionicRent.Persistence;
 using FluentValidation.AspNetCore;
+using MediatR;
+using MediatR.Pipeline;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -105,11 +110,11 @@ namespace BionicRent.Api {
                     };
                 };
             });
-            /*     services.AddMediatR (typeof (CreateUserCommandHandler).GetTypeInfo ().Assembly);
+            services.AddMediatR (typeof (CreateCustomerCommandHandler).GetTypeInfo ().Assembly);
 
-                services.AddTransient (typeof (IPipelineBehavior<,>), typeof (RequestPreProcessorBehavior<,>));
-                services.AddTransient (typeof (IPipelineBehavior<,>), typeof (RequestPerformanceBehaviour<,>));
-                services.AddTransient (typeof (IPipelineBehavior<,>), typeof (RequestValidationBehavior<,>)); */
+            services.AddTransient (typeof (IPipelineBehavior<,>), typeof (RequestPreProcessorBehavior<,>));
+            services.AddTransient (typeof (IPipelineBehavior<,>), typeof (RequestPerformanceBehaviour<,>));
+            services.AddTransient (typeof (IPipelineBehavior<,>), typeof (RequestValidationBehavior<,>));
 
             services.AddCors (options => {
                 options.AddPolicy ("AllowAllOrigins",

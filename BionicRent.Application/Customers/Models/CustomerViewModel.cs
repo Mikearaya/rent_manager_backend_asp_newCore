@@ -24,6 +24,7 @@ namespace BionicRent.Application.Customers.Models {
         public static Expression<Func<Customer, CustomerViewModel>> Projection {
             get {
                 return customer => new CustomerViewModel () {
+                    Id = customer.CustomerId,
                     FirstName = customer.FirstName,
                     LastName = customer.LastName,
                     MobileNumber = customer.MobileNumber,
