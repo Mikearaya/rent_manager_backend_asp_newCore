@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using AccountingBackend.Api.Filters;
 using BackendSecurity.Domain.Identity;
 using BackendSecurity.Persistance;
+using BionicRent.Api.Commons;
 using BionicRent.Api.Configurations;
 using BionicRent.Application.interfaces;
 using BionicRent.Application.Interfaces;
@@ -26,6 +27,8 @@ using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 
+[assembly : ApiController]
+[assembly : ApiConventionType (typeof (CustomApiConventions))]
 namespace BionicRent.Api {
     public class Startup {
         public Startup (IConfiguration configuration) {
