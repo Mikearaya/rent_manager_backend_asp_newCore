@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
@@ -9,13 +8,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.4"/>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="2.2.0"/>
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.13"/>
-
+    <PackageReference Include="AutoMapper" Version="8.1.1"/>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BionicRent.Domain\BionicRent.Domain.csproj"/>
     <ProjectReference Include="..\BionicRent.Commons\BionicRent.Commons.csproj"/>
     <ProjectReference Include="..\BackendSecurity.Domain\BackendSecurity.Domain.csproj"/>
-
   </ItemGroup>
-
 </Project>

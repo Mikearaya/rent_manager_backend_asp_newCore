@@ -9,6 +9,7 @@ using System;
  */
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using BionicRent.Application.interfaces;
 using BionicRent.Domain;
 using MediatR;
@@ -16,23 +17,23 @@ using MediatR;
 namespace BionicRent.Application.Partners.Commands.CreatePartner {
     public class CreateParnterCommandHandler : IRequestHandler<CreatePartnerCommand, uint> {
         private readonly IBionicRentDatabaseService _database;
+        private IMapper _Mapper;
 
         public CreateParnterCommandHandler (IBionicRentDatabaseService database) {
             _database = database;
+
+            var config = new MapperConfiguration (c => {
+                c.CreateMap<CreatePartnerCommand, VehicleOwner> ();
+            });
+
+            _Mapper = config.CreateMapper ();
         }
 
         public async Task<uint> Handle (CreatePartnerCommand request, CancellationToken cancellationToken) {
-            VehicleOwner owner = new VehicleOwner () {
-                FirstName = request.FirstName,
-                LastName = request.LastName,
-                City = request.City,
-                SubCity = request.SubCity,
-                Wereda = request.Wereda,
-                HouseNumber = request.HouseNumber,
-                MobileNumber = request.MobileNumber,
-                RegisteredOn = DateTime.Now,
-                UpdatedOn = DateTime.Now,
-            };
+
+            VehicleOwner owner = _Mapper.Map<CreatePartnerCommand, VehicleOwner> (request);
+            owner.RegisteredOn = DateTime.Now;
+            owner.UpdatedOn = DateTime.Now;
 
             _database.VehicleOwner.Add (owner);
 

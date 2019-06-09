@@ -9,16 +9,25 @@ using System;
  */
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using BionicRent.Application.Exceptions;
 using BionicRent.Application.interfaces;
+using BionicRent.Domain;
 using MediatR;
 
 namespace BionicRent.Application.Partners.Commands.UpdatePartner {
     public class UpdatePartnerCommandHandler : IRequestHandler<UpdatePartnerCommand, Unit> {
         private readonly IBionicRentDatabaseService _database;
 
+        private IMapper _Mapper;
+
         public UpdatePartnerCommandHandler (IBionicRentDatabaseService database) {
             _database = database;
+            var config = new MapperConfiguration (c => {
+                c.CreateMap<UpdatePartnerCommand, VehicleOwner> ();
+            });
+
+            _Mapper = config.CreateMapper ();
         }
 
         public async Task<Unit> Handle (UpdatePartnerCommand request, CancellationToken cancellationToken) {
@@ -28,13 +37,7 @@ namespace BionicRent.Application.Partners.Commands.UpdatePartner {
                 throw new NotFoundException ($" Partner with id : {request.Id} Not found");
             }
 
-            owner.FirstName = request.FirstName;
-            owner.LastName = request.LastName;
-            owner.MobileNumber = request.MobileNumber;
-            owner.HouseNumber = request.HouseNumber;
-            owner.SubCity = request.SubCity;
-            owner.City = request.City;
-            owner.Wereda = request.Wereda;
+            _Mapper.Map (request, owner);
             owner.UpdatedOn = DateTime.Now;
 
             _database.VehicleOwner.Update (owner);

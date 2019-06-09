@@ -1,15 +1,31 @@
+/*
+ * @CreateTime: Jun 9, 2019 5:56 PM
+ * @Author:  Mikael Araya
+ * @Contact: MikaelAraya12@gmail.com
+ * @Last Modified By:  Mikael Araya
+ * @Last Modified Time: Jun 9, 2019 5:56 PM
+ * @Description: Modify Here, Please 
+ */
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using BionicRent.Application.Exceptions;
 using BionicRent.Application.interfaces;
+using BionicRent.Domain;
 using MediatR;
 
 namespace BionicRent.Application.Vehicles.Commands.UpdateVehicle {
     public class UpdateVehicleCommandHandler : IRequestHandler<UpdateVehicleCommand, Unit> {
         private readonly IBionicRentDatabaseService _database;
+        private IMapper _Mapper;
 
         public UpdateVehicleCommandHandler (IBionicRentDatabaseService database) {
             _database = database;
+            var config = new MapperConfiguration (c => {
+                c.CreateMap<UpdateVehicleCommand, Vehicle> ();
+            });
+
+            _Mapper = config.CreateMapper ();
         }
 
         public async Task<Unit> Handle (UpdateVehicleCommand request, CancellationToken cancellationToken) {
@@ -19,21 +35,7 @@ namespace BionicRent.Application.Vehicles.Commands.UpdateVehicle {
                 throw new NotFoundException ($"Vehicle with id : {request.Id} not found");
             }
 
-            vehicle.OwnerId = request.OwnerId;
-            vehicle.Make = request.Make;
-            vehicle.Model = request.Model;
-            vehicle.MotorNumber = request.MotorNumber;
-            vehicle.LibreNo = request.LibreNo;
-            vehicle.PlateCode = request.PlateCode;
-            vehicle.PlateNumber = request.PlateNumber;
-            vehicle.Type = request.Type;
-            vehicle.Transmission = request.Transmission;
-            vehicle.TotalPassanger = request.TotalPassanger;
-            vehicle.YearMade = request.YearMade;
-            vehicle.ChassisNumber = request.ChassisNumber;
-            vehicle.Color = request.Color;
-            vehicle.Cc = request.Cc;
-            vehicle.CylinderCount = request.CylinderCount;
+            _Mapper.Map (request, vehicle);
 
             _database.Vehicle.Update (vehicle);
             await _database.SaveAsync ();

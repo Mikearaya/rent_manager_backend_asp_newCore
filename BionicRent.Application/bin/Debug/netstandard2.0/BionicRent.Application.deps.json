@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "7e8de584108404291feb82d37fb458b07d2e90dc"
+    "signature": "8dcc23b6871d62b5396cc7e0be39c944e6e169f5"
   },
   "compilationOptions": {},
   "targets": {
@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "BionicRent.Application/1.0.0": {
         "dependencies": {
+          "AutoMapper": "8.1.1",
           "BackendSecurity.Domain": "1.0.0",
           "BionicRent.Commons": "1.0.0",
           "BionicRent.Domain": "1.0.0",
@@ -21,6 +22,18 @@
         },
         "runtime": {
           "BionicRent.Application.dll": {}
+        }
+      },
+      "AutoMapper/8.1.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {
+            "assemblyVersion": "8.1.1.0",
+            "fileVersion": "8.1.1.0"
+          }
         }
       },
       "FluentValidation/8.2.3": {
@@ -255,6 +268,14 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll": {
             "assemblyVersion": "2.2.0.0",
             "fileVersion": "2.2.0.18316"
+          }
+        }
+      },
+      "Microsoft.CSharp/4.5.0": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.CSharp.dll": {
+            "assemblyVersion": "4.0.4.0",
+            "fileVersion": "4.6.26515.6"
           }
         }
       },
@@ -956,6 +977,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AutoMapper/8.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GKBliBukkLG0z/U0T4Jy+yEpr5bKDImQ9nEy/T8jqNulwNkWDjiEWa9TL4yCxIhleDbmVmw2xYSaJ3Eb2OcSUg==",
+      "path": "automapper/8.1.1",
+      "hashPath": "automapper.8.1.1.nupkg.sha512"
+    },
     "FluentValidation/8.2.3": {
       "type": "package",
       "serviceable": true,
@@ -1088,6 +1116,13 @@
       "sha512": "sha512-8/l+O/3kTBVjNUcxvYcgY/fnLQf01GzG8VmoASdhYYunmKIcCimk+aY6SvV/3tuQBVkZJV+pcHCQ1+XyjEqfyQ==",
       "path": "microsoft.aspnetcore.webutilities/2.2.0",
       "hashPath": "microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.CSharp/4.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
+      "path": "microsoft.csharp/4.5.0",
+      "hashPath": "microsoft.csharp.4.5.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/2.2.4": {
       "type": "package",

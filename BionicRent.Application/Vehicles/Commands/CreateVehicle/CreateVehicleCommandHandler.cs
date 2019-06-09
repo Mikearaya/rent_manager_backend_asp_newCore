@@ -9,6 +9,7 @@ using System;
  */
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using BionicRent.Application.Exceptions;
 using BionicRent.Application.interfaces;
 using BionicRent.Domain;
@@ -17,9 +18,14 @@ using MediatR;
 namespace BionicRent.Application.Vehicles.Commands.CreateVehicle {
     public class CreateVehicleCommandHandler : IRequestHandler<CreateVehicleCommand, uint> {
         private readonly IBionicRentDatabaseService _database;
-
+        private IMapper _Mapper;
         public CreateVehicleCommandHandler (IBionicRentDatabaseService database) {
             _database = database;
+
+            var config = new MapperConfiguration (c => {
+                c.CreateMap<CreateVehicleCommand, Vehicle> ();
+            });
+            _Mapper = config.CreateMapper ();
         }
 
         public async Task<uint> Handle (CreateVehicleCommand request, CancellationToken cancellationToken) {
@@ -29,27 +35,13 @@ namespace BionicRent.Application.Vehicles.Commands.CreateVehicle {
             if (owner == null) {
                 throw new NotFoundException ($"Partner with id: {request.OwnerId} not foun");
             }
-            Vehicle vehicle = new Vehicle () {
-                Make = request.Make,
-                Model = request.Model,
-                Cc = request.Cc,
-                ChassisNumber = request.ChassisNumber,
-                Color = request.Color,
-                CylinderCount = request.CylinderCount,
-                FuielType = request.FuielType,
-                TotalPassanger = request.TotalPassanger,
-                Transmission = request.Transmission,
-                Type = request.Type,
-                LibreNo = request.LibreNo,
-                MotorNumber = request.MotorNumber,
-                PlateCode = request.PlateCode,
-                PlateNumber = request.PlateNumber,
-                UpdatedOn = DateTime.Now,
-                YearMade = request.YearMade,
-                OwnerId = request.OwnerId,
-            };
+
+            Vehicle vehicle = _Mapper.Map<CreateVehicleCommand, Vehicle> (request);
+
+            vehicle.UpdatedOn = DateTime.Now;
 
             _database.Vehicle.Add (vehicle);
+
             await _database.SaveAsync ();
 
             return vehicle.VehicleId;

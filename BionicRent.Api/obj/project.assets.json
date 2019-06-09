@@ -2,7 +2,7 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.2": {
-      "AutoMapper/8.1.0": {
+      "AutoMapper/8.1.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.5.0",
@@ -4710,6 +4710,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "AutoMapper": "8.1.1",
           "BackendSecurity.Domain": "1.0.0",
           "BionicRent.Commons": "1.0.0",
           "BionicRent.Domain": "1.0.0",
@@ -4775,14 +4776,14 @@
     }
   },
   "libraries": {
-    "AutoMapper/8.1.0": {
-      "sha512": "Go75WXHE7p/8CtRaxZnvVEfcSh7xpE6zx9wkgN4I1BxvlzP0hoiTLHSXDYXgv9CoxaRj4ahwzCA/iwdpvyQyOA==",
+    "AutoMapper/8.1.1": {
+      "sha512": "GKBliBukkLG0z/U0T4Jy+yEpr5bKDImQ9nEy/T8jqNulwNkWDjiEWa9TL4yCxIhleDbmVmw2xYSaJ3Eb2OcSUg==",
       "type": "package",
-      "path": "automapper/8.1.0",
+      "path": "automapper/8.1.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "automapper.8.1.0.nupkg.sha512",
+        "automapper.8.1.1.nupkg.sha512",
         "automapper.nuspec",
         "lib/net461/AutoMapper.dll",
         "lib/net461/AutoMapper.pdb",

@@ -269,6 +269,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            },
             "FluentValidation": {
               "target": "Package",
               "version": "[8.2.3, )"

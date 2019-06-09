@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "AutoMapper/8.1.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {}
+        }
+      },
       "FluentValidation/8.2.3": {
         "type": "package",
         "dependencies": {
@@ -1176,6 +1189,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "AutoMapper": "8.1.1",
           "BackendSecurity.Domain": "1.0.0",
           "BionicRent.Commons": "1.0.0",
           "BionicRent.Domain": "1.0.0",
@@ -1215,6 +1229,23 @@
     }
   },
   "libraries": {
+    "AutoMapper/8.1.1": {
+      "sha512": "GKBliBukkLG0z/U0T4Jy+yEpr5bKDImQ9nEy/T8jqNulwNkWDjiEWa9TL4yCxIhleDbmVmw2xYSaJ3Eb2OcSUg==",
+      "type": "package",
+      "path": "automapper/8.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "automapper.8.1.1.nupkg.sha512",
+        "automapper.nuspec",
+        "lib/net461/AutoMapper.dll",
+        "lib/net461/AutoMapper.pdb",
+        "lib/net461/AutoMapper.xml",
+        "lib/netstandard2.0/AutoMapper.dll",
+        "lib/netstandard2.0/AutoMapper.pdb",
+        "lib/netstandard2.0/AutoMapper.xml"
+      ]
+    },
     "FluentValidation/8.2.3": {
       "sha512": "mw3Kcn+JT2+pZls3x1Eh1nx0FQEJKzAUQTNu5aYxxwtZf1PfOYGFUIBenBr74hFQeVtakrSC+o+fDzHxAd8ZDQ==",
       "type": "package",

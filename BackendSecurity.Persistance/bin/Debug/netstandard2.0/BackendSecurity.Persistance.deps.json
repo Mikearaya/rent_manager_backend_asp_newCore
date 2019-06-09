@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "9cc60d0cb36313ea0488cd0d8d8266a434428838"
+    "signature": "cb5a0cb709c6f4bce040bea8b194905bba4ae591"
   },
   "compilationOptions": {},
   "targets": {
@@ -17,6 +17,18 @@
         },
         "runtime": {
           "BackendSecurity.Persistance.dll": {}
+        }
+      },
+      "AutoMapper/8.1.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.5.0",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.dll": {
+            "assemblyVersion": "8.1.1.0",
+            "fileVersion": "8.1.1.0"
+          }
         }
       },
       "FluentValidation/8.2.3": {
@@ -1003,6 +1015,7 @@
       },
       "BionicRent.Application/1.0.0": {
         "dependencies": {
+          "AutoMapper": "8.1.1",
           "BackendSecurity.Domain": "1.0.0",
           "BionicRent.Commons": "1.0.0",
           "BionicRent.Domain": "1.0.0",
@@ -1033,6 +1046,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AutoMapper/8.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-GKBliBukkLG0z/U0T4Jy+yEpr5bKDImQ9nEy/T8jqNulwNkWDjiEWa9TL4yCxIhleDbmVmw2xYSaJ3Eb2OcSUg==",
+      "path": "automapper/8.1.1",
+      "hashPath": "automapper.8.1.1.nupkg.sha512"
     },
     "FluentValidation/8.2.3": {
       "type": "package",
