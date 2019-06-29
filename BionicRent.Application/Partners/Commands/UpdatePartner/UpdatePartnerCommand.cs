@@ -12,8 +12,8 @@ namespace BionicRent.Application.Partners.Commands.UpdatePartner {
     public class UpdatePartnerCommand : IRequest {
 
         public uint Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string PartnerName { get; set; }
+
         public string MobileNumber { get; set; }
         public string City { get; set; }
         public string SubCity { get; set; }

@@ -3,7 +3,7 @@
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jun 7, 2019 9:56 AM
+ * @Last Modified Time: Jun 9, 2019 10:58 PM
  * @Description: Modify Here, Please 
  */
 using System;
@@ -11,6 +11,7 @@ using System.Collections.Generic;
 
 namespace BionicRent.Domain {
     public class Employee {
+
         public Employee () {
             Rent = new HashSet<Rent> ();
         }
@@ -25,9 +26,10 @@ namespace BionicRent.Domain {
         public string Role { get; set; }
         public string PhoneNumber { get; set; }
         public string Country { get; set; }
-        public DateTime RegisteredOn { get; set; }
+        public DateTime? DateAdded { get; set; }
+        public DateTime? DateUpdated { get; set; }
 
-        public virtual ICollection<Rent> Rent { get; set; }
+        public ICollection<Rent> Rent { get; set; }
 
     }
 

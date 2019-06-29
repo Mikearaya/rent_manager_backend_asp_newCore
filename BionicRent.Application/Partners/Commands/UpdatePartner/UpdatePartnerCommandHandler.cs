@@ -38,7 +38,7 @@ namespace BionicRent.Application.Partners.Commands.UpdatePartner {
             }
 
             _Mapper.Map (request, owner);
-            owner.UpdatedOn = DateTime.Now;
+            owner.DateUpdated = DateTime.Now;
 
             _database.VehicleOwner.Update (owner);
 

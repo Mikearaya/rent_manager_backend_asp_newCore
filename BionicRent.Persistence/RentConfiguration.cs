@@ -26,16 +26,22 @@ namespace BionicRent.Persistence {
 
             builder.Property (e => e.RentId).HasColumnName ("RENT_ID");
 
-            builder.Property (e => e.AddedOn)
-                .HasColumnName ("added_on")
-                .HasColumnType ("datetime")
-                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'");
-
             builder.Property (e => e.ColateralDeposit)
                 .HasColumnName ("colateral_deposit")
                 .HasColumnType ("int(11)");
 
             builder.Property (e => e.CustomerId).HasColumnName ("CUSTOMER_ID");
+
+            builder.Property (e => e.DateAdded)
+                .HasColumnName ("date_added")
+                .HasColumnType ("datetime")
+                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'");
+
+            builder.Property (e => e.DateUpdated)
+                .HasColumnName ("date_updated")
+                .HasColumnType ("datetime")
+                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'")
+                .ValueGeneratedOnAddOrUpdate ();
 
             builder.Property (e => e.EndDate)
                 .HasColumnName ("end_date")
@@ -60,16 +66,9 @@ namespace BionicRent.Persistence {
                 .HasColumnType ("datetime");
 
             builder.Property (e => e.Status)
-                .IsRequired ()
                 .HasColumnName ("status")
-                .HasColumnType ("enum('RENTED','RETURNED')")
+                .HasColumnType ("varchar(20)")
                 .HasDefaultValueSql ("'RENTED'");
-
-            builder.Property (e => e.UpdatedOn)
-                .HasColumnName ("updated_on")
-                .HasColumnType ("datetime")
-                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'")
-                .ValueGeneratedOnAddOrUpdate ();
 
             builder.Property (e => e.VehicleId).HasColumnName ("VEHICLE_ID");
 
@@ -81,6 +80,7 @@ namespace BionicRent.Persistence {
             builder.HasOne (d => d.RentedByNavigation)
                 .WithMany (p => p.Rent)
                 .HasForeignKey (d => d.RentedBy)
+                .OnDelete (DeleteBehavior.Cascade)
                 .HasConstraintName ("fk_renting_employee");
 
             builder.HasOne (d => d.Vehicle)

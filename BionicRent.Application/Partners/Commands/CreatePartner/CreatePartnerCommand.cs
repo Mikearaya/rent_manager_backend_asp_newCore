@@ -11,8 +11,7 @@ using MediatR;
 namespace BionicRent.Application.Partners.Commands.CreatePartner {
     public class CreatePartnerCommand : IRequest<uint> {
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string PartnerName { get; set; }
         public string MobileNumber { get; set; }
         public string City { get; set; }
         public string SubCity { get; set; }

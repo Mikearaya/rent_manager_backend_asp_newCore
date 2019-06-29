@@ -6,7 +6,8 @@ namespace BionicRent.Application.Vehicles.Models {
     public class VehicleViewModel {
 
         public uint Id { get; set; }
-        public uint OwnerId { get; set; }
+        public uint? OwnerId { get; set; }
+        public string Owner { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
         public string YearMade { get; set; }
@@ -17,7 +18,7 @@ namespace BionicRent.Application.Vehicles.Models {
         public string FuielType { get; set; }
         public string Cc { get; set; }
         public sbyte TotalPassanger { get; set; }
-        public int CylinderCount { get; set; }
+        public int? CylinderCount { get; set; }
         public string LibreNo { get; set; }
         public string PlateCode { get; set; }
         public string PlateNumber { get; set; }
@@ -42,9 +43,10 @@ namespace BionicRent.Application.Vehicles.Models {
                     MotorNumber = vehicle.MotorNumber,
                     PlateCode = vehicle.PlateCode,
                     PlateNumber = vehicle.PlateNumber,
-                    DateUpdated = vehicle.UpdatedOn,
+                    DateUpdated = vehicle.DateUpdated,
                     YearMade = vehicle.YearMade,
-                    OwnerId = vehicle.OwnerId
+                    OwnerId = vehicle.OwnerId,
+                    Owner = vehicle.Owner != null ? vehicle.Owner.PartnerName : "Company"
                 };
             }
         }

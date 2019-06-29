@@ -19,7 +19,7 @@ namespace BionicRent.Application.Customers.Queries.GetCustomerList {
 
         public async Task<FilterResultModel<CustomerViewModel>> Handle (GetCustomersListQuery request, CancellationToken cancellationToken) {
 
-            var sortBy = request.SortBy.Trim () != "" ? request.SortBy : "FirstName";
+            var sortBy = request.SortBy.Trim () != "" ? request.SortBy : "CustomerName";
             var sortDirection = (request.SortDirection.ToUpper () == "DESCENDING") ? true : false;
 
             FilterResultModel<CustomerViewModel> result = new FilterResultModel<CustomerViewModel> ();

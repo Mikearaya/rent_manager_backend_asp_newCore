@@ -30,7 +30,7 @@ namespace BionicRent.Application.Customers.Commands.CreateCustomer {
         public async Task<uint> Handle (CreateCustomerCommand request, CancellationToken cancellationToken) {
 
             Customer customer = _Mapper.Map<CreateCustomerCommand, Customer> (request);
-            customer.RegisteredOn = DateTime.Now;
+            customer.DateAdded = DateTime.Now;
 
             _database.Customer.Add (customer);
 

@@ -14,8 +14,8 @@ namespace BionicRent.Application.Partners.Models {
     public class PartnerViewModel {
 
         public uint Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string PartnerName { get; set; }
+
         public string MobileNumber { get; set; }
         public string City { get; set; }
         public string SubCity { get; set; }
@@ -29,15 +29,14 @@ namespace BionicRent.Application.Partners.Models {
             get {
                 return owner => new PartnerViewModel () {
                     Id = owner.OwnerId,
-                    FirstName = owner.FirstName,
-                    LastName = owner.LastName,
+                    PartnerName = owner.PartnerName,
                     HouseNumber = owner.HouseNumber,
                     MobileNumber = owner.MobileNumber,
                     City = owner.City,
                     SubCity = owner.SubCity,
                     Wereda = owner.Wereda,
-                    DateAdded = owner.RegisteredOn,
-                    DateUpdated = owner.UpdatedOn,
+                    DateAdded = owner.DateAdded,
+                    DateUpdated = owner.DateUpdated,
                 };
             }
         }

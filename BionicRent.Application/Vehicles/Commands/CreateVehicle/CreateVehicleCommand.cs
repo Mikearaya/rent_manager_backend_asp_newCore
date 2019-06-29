@@ -10,7 +10,7 @@ using MediatR;
 
 namespace BionicRent.Application.Vehicles.Commands.CreateVehicle {
     public class CreateVehicleCommand : IRequest<uint> {
-        public uint OwnerId { get; set; }
+        public uint? OwnerId { get; set; }
         public string Make { get; set; }
         public string Model { get; set; }
         public string YearMade { get; set; }
@@ -21,7 +21,7 @@ namespace BionicRent.Application.Vehicles.Commands.CreateVehicle {
         public string FuielType { get; set; }
         public string Cc { get; set; }
         public sbyte TotalPassanger { get; set; }
-        public int CylinderCount { get; set; }
+        public int? CylinderCount { get; set; }
         public string LibreNo { get; set; }
         public string PlateCode { get; set; }
         public string PlateNumber { get; set; }

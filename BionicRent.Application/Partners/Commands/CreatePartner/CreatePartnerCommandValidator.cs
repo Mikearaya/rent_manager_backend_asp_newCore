@@ -12,8 +12,7 @@ namespace BionicRent.Application.Partners.Commands.CreatePartner {
     public class CreatePartnerCommandValidator : AbstractValidator<CreatePartnerCommand> {
         public CreatePartnerCommandValidator () {
 
-            RuleFor (x => x.FirstName).NotEmpty ().NotNull ();
-            RuleFor (x => x.LastName).NotEmpty ().NotNull ();
+            RuleFor (x => x.PartnerName).NotEmpty ().NotNull ();
             RuleFor (x => x.City).NotEmpty ().NotNull ();
             RuleFor (x => x.SubCity).NotEmpty ().NotNull ();
             RuleFor (x => x.Wereda).NotEmpty ().NotNull ();

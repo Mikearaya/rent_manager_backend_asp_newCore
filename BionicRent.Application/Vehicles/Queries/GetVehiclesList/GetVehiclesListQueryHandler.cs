@@ -3,7 +3,7 @@
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jun 9, 2019 5:57 PM
+ * @Last Modified Time: Jun 9, 2019 6:53 PM
  * @Description: Modify Here, Please 
  */
 using System.Linq;
@@ -25,27 +25,27 @@ namespace BionicRent.Application.Vehicles.Queries.GetVehiclesList {
 
         public Task<FilterResultModel<VehicleViewModel>> Handle (GetVehiclesListQuery request, CancellationToken cancellationToken) {
 
-            var sortBy = request.SortBy.Trim () != "" ? request.SortBy : "FirstName";
+            var sortBy = request.SortBy.Trim () != "" ? request.SortBy : "Make";
             var sortDirection = (request.SortDirection.ToUpper () == "DESCENDING") ? true : false;
 
             FilterResultModel<VehicleViewModel> result = new FilterResultModel<VehicleViewModel> ();
-            var customer = _database.Vehicle
+            var vehicle = _database.Vehicle
                 .Select (VehicleViewModel.Projection)
                 .Select (DynamicQueryHelper.GenerateSelectedColumns<VehicleViewModel> (request.SelectedColumns))
                 .AsQueryable ();
 
             if (request.Filter.Count () > 0) {
-                customer = customer
+                vehicle = vehicle
                     .Where (DynamicQueryHelper
                         .BuildWhere<VehicleViewModel> (request.Filter)).AsQueryable ();
             }
 
-            result.Count = customer.Count ();
+            result.Count = vehicle.Count ();
 
             var PageSize = (request.PageSize == 0) ? result.Count : request.PageSize;
             var PageNumber = (request.PageSize == 0) ? 1 : request.PageNumber;
 
-            result.Items = customer.OrderBy (sortBy, sortDirection)
+            result.Items = vehicle.OrderBy (sortBy, sortDirection)
                 .Skip (PageNumber - 1)
                 .Take (PageSize)
                 .ToList ();

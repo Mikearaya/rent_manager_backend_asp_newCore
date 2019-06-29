@@ -3,7 +3,7 @@
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jun 7, 2019 9:52 AM
+ * @Last Modified Time: Jun 29, 2019 2:17 PM
  * @Description: Modify Here, Please 
  */
 using System;
@@ -11,14 +11,13 @@ using System.Collections.Generic;
 
 namespace BionicRent.Domain {
     public class Customer {
-
         public Customer () {
             Rent = new HashSet<Rent> ();
+            RentPayment = new HashSet<RentPayment> ();
         }
 
         public uint CustomerId { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string CustomerName { get; set; }
         public string PassportNumber { get; set; }
         public string Nationality { get; set; }
         public string Country { get; set; }
@@ -26,12 +25,13 @@ namespace BionicRent.Domain {
         public string HouseNo { get; set; }
         public string MobileNumber { get; set; }
         public string OtherPhone { get; set; }
-        public DateTime? RegisteredOn { get; set; }
+        public DateTime? DateAdded { get; set; }
         public string DrivingLicenceId { get; set; }
         public string HotelName { get; set; }
         public string HotelPhone { get; set; }
+        public DateTime? DateUpdated { get; set; }
 
         public virtual ICollection<Rent> Rent { get; set; }
-
+        public virtual ICollection<RentPayment> RentPayment { get; set; }
     }
 }

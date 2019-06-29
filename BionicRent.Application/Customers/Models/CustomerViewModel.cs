@@ -6,8 +6,7 @@ namespace BionicRent.Application.Customers.Models {
     public class CustomerViewModel {
 
         public uint Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string CustomerName { get; set; }
         public string PassportNumber { get; set; }
         public string Nationality { get; set; }
         public string Country { get; set; }
@@ -25,8 +24,7 @@ namespace BionicRent.Application.Customers.Models {
             get {
                 return customer => new CustomerViewModel () {
                     Id = customer.CustomerId,
-                    FirstName = customer.FirstName,
-                    LastName = customer.LastName,
+                    CustomerName = customer.CustomerName,
                     MobileNumber = customer.MobileNumber,
                     OtherPhone = customer.OtherPhone,
                     HotelName = customer.HotelName,
@@ -37,7 +35,7 @@ namespace BionicRent.Application.Customers.Models {
                     Country = customer.Country,
                     HouseNo = customer.HouseNo,
                     PassportNumber = customer.PassportNumber,
-                    DateAdded = customer.RegisteredOn
+                    DateAdded = customer.DateAdded
                 };
             }
         }

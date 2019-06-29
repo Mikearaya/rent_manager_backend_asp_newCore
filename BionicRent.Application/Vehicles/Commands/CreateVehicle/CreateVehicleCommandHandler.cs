@@ -30,15 +30,17 @@ namespace BionicRent.Application.Vehicles.Commands.CreateVehicle {
 
         public async Task<uint> Handle (CreateVehicleCommand request, CancellationToken cancellationToken) {
 
-            var owner = await _database.VehicleOwner.FindAsync (request.OwnerId);
+            if (request.OwnerId != null) {
+                var owner = await _database.VehicleOwner.FindAsync (request.OwnerId);
 
-            if (owner == null) {
-                throw new NotFoundException ($"Partner with id: {request.OwnerId} not foun");
+                if (owner == null) {
+                    throw new NotFoundException ($"Partner with id: {request.OwnerId} not foun");
+                }
             }
 
             Vehicle vehicle = _Mapper.Map<CreateVehicleCommand, Vehicle> (request);
 
-            vehicle.UpdatedOn = DateTime.Now;
+            vehicle.DateUpdated = DateTime.Now;
 
             _database.Vehicle.Add (vehicle);
 

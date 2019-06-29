@@ -11,12 +11,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BionicRent.Persistence {
-    public class VehicleConditionConfiguration : IEntityTypeConfiguration<VehicleCondition> {
-        public void Configure (EntityTypeBuilder<VehicleCondition> builder) {
+    public class RentConditionConfiguration : IEntityTypeConfiguration<RentCondition> {
+        public void Configure (EntityTypeBuilder<RentCondition> builder) {
             builder.HasKey (e => e.ConditionId)
                 .HasName ("PRIMARY");
 
-            builder.ToTable ("vehicle_condition");
+            builder.ToTable ("rent_condition");
 
             builder.HasIndex (e => e.RentId)
                 .HasName ("vehicle_condition_ibfk_1");
@@ -54,8 +54,17 @@ namespace BionicRent.Persistence {
                 .HasColumnType ("int(11)")
                 .HasDefaultValueSql ("'0'");
 
+            builder.Property (e => e.DateAdded)
+                .HasColumnName ("date_added")
+                .HasColumnType ("datetime");
+
+            builder.Property (e => e.DateUpdated)
+                .HasColumnName ("date_updated")
+                .HasColumnType ("datetime")
+                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'")
+                .ValueGeneratedOnAddOrUpdate ();
+
             builder.Property (e => e.FuielLevel)
-                .IsRequired ()
                 .HasColumnName ("fuiel_level")
                 .HasColumnType ("varchar(20)");
 
@@ -80,7 +89,6 @@ namespace BionicRent.Persistence {
                 .HasDefaultValueSql ("'0'");
 
             builder.Property (e => e.Radio)
-                .IsRequired ()
                 .HasColumnName ("radio")
                 .HasColumnType ("varchar(20)")
                 .HasDefaultValueSql ("'None'");
@@ -132,9 +140,9 @@ namespace BionicRent.Persistence {
                 .HasDefaultValueSql ("'0'");
 
             builder.HasOne (d => d.Rent)
-                .WithMany (p => p.VehicleCondition)
+                .WithMany (p => p.RentCondition)
                 .HasForeignKey (d => d.RentId)
-                .HasConstraintName ("vehicle_condition_ibfk_1");
+                .HasConstraintName ("rent_condition_ibfk_1");
         }
     }
 }

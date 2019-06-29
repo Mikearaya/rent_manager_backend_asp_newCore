@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using BionicRent.Application.CustomerPayments.Queries.GetList;
 using BionicRent.Application.Customers.Commands.CreateCustomer;
 using BionicRent.Application.Customers.Commands.DeleteCustomer;
 using BionicRent.Application.Customers.Commands.UpdateCustomer;
@@ -6,6 +7,7 @@ using BionicRent.Application.Customers.Models;
 using BionicRent.Application.Customers.Queries.GetCustomer;
 using BionicRent.Application.Customers.Queries.GetCustomerList;
 using BionicRent.Application.Models;
+using BionicRent.Application.PartnerPayments.Queries.GetList;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,6 +25,13 @@ namespace BionicRent.Api.Controllers.Customers {
         public async Task<ActionResult<CustomerViewModel>> FindCustomerById (uint id) {
 
             var customer = await _Mediator.Send (new GetCustomerQuery () { Id = id });
+            return Ok (customer);
+        }
+
+        [HttpGet ("index")]
+        public async Task<ActionResult<CustomerViewModel>> GetCustomersIndex ([FromQuery] GetRemainingCustomerPaymentsQuery query) {
+
+            var customer = await _Mediator.Send (query);
             return Ok (customer);
         }
 

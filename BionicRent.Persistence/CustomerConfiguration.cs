@@ -3,7 +3,7 @@
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jun 7, 2019 7:03 PM
+ * @Last Modified Time: Jun 29, 2019 2:18 PMM
  * @Description: Modify Here, Please 
  */
 using BionicRent.Domain;
@@ -18,24 +18,34 @@ namespace BionicRent.Persistence {
             builder.Property (e => e.CustomerId).HasColumnName ("CUSTOMER_ID");
 
             builder.Property (e => e.City)
-                .IsRequired ()
                 .HasColumnName ("city")
                 .HasColumnType ("varchar(45)");
 
             builder.Property (e => e.Country)
-                .IsRequired ()
                 .HasColumnName ("country")
-                .HasColumnType ("varchar(45)");
+                .HasColumnType ("varchar(45)")
+                .HasDefaultValueSql ("'Ethiopia'");
+
+            builder.Property (e => e.CustomerName)
+                .IsRequired ()
+                .HasColumnName ("customer_name")
+                .HasColumnType ("varchar(70)");
+
+            builder.Property (e => e.DateAdded)
+                .HasColumnName ("date_added")
+                .HasColumnType ("datetime")
+                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'");
+
+            builder.Property (e => e.DateUpdated)
+                .HasColumnName ("date_updated")
+                .HasColumnType ("datetime")
+                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'")
+                .ValueGeneratedOnAddOrUpdate ();
 
             builder.Property (e => e.DrivingLicenceId)
                 .IsRequired ()
                 .HasColumnName ("driving_licence_id")
                 .HasColumnType ("varchar(45)");
-
-            builder.Property (e => e.FirstName)
-                .IsRequired ()
-                .HasColumnName ("first_name")
-                .HasColumnType ("varchar(20)");
 
             builder.Property (e => e.HotelName)
                 .HasColumnName ("hotel_name")
@@ -50,18 +60,12 @@ namespace BionicRent.Persistence {
                 .HasColumnName ("house_no")
                 .HasColumnType ("varchar(10)");
 
-            builder.Property (e => e.LastName)
-                .IsRequired ()
-                .HasColumnName ("last_name")
-                .HasColumnType ("varchar(20)");
-
             builder.Property (e => e.MobileNumber)
                 .IsRequired ()
                 .HasColumnName ("mobile_number")
                 .HasColumnType ("varchar(15)");
 
             builder.Property (e => e.Nationality)
-                .IsRequired ()
                 .HasColumnName ("nationality")
                 .HasColumnType ("varchar(45)")
                 .HasDefaultValueSql ("'Ethiopian'");
@@ -74,11 +78,6 @@ namespace BionicRent.Persistence {
                 .HasColumnName ("passport_number")
                 .HasColumnType ("varchar(45)");
 
-            builder.Property (e => e.RegisteredOn)
-                .HasColumnName ("registered_on")
-                .HasColumnType ("datetime")
-                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'")
-                .ValueGeneratedOnAddOrUpdate ();
         }
     }
 }

@@ -32,8 +32,8 @@ namespace BionicRent.Application.Partners.Commands.CreatePartner {
         public async Task<uint> Handle (CreatePartnerCommand request, CancellationToken cancellationToken) {
 
             VehicleOwner owner = _Mapper.Map<CreatePartnerCommand, VehicleOwner> (request);
-            owner.RegisteredOn = DateTime.Now;
-            owner.UpdatedOn = DateTime.Now;
+            owner.DateAdded = DateTime.Now;
+            owner.DateUpdated = DateTime.Now;
 
             _database.VehicleOwner.Add (owner);
 

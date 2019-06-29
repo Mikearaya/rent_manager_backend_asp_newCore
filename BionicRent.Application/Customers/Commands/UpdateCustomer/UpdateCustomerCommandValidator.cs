@@ -12,9 +12,8 @@ namespace BionicRent.Application.Customers.Commands.UpdateCustomer {
     public class UpdateCustomerCommandValidator : AbstractValidator<UpdateCustomerCommand> {
         public UpdateCustomerCommandValidator () {
             RuleFor (x => x.Id).NotNull ();
-            RuleFor (x => x.FirstName).NotEmpty ().NotNull ();
+            RuleFor (x => x.CustomerName).NotEmpty ().NotNull ();
             RuleFor (x => x.MobileNumber).NotEmpty ().NotNull ();
-            RuleFor (x => x.LastName).NotEmpty ().NotNull ();
             RuleFor (x => x.DrivingLicenceId).NotEmpty ().NotNull ();
         }
     }

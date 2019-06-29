@@ -10,8 +10,8 @@ using MediatR;
 
 namespace BionicRent.Application.Customers.Commands.CreateCustomer {
     public class CreateCustomerCommand : IRequest<uint> {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string CustomerName { get; set; }
+
         public string PassportNumber { get; set; }
         public string Nationality { get; set; }
         public string Country { get; set; }

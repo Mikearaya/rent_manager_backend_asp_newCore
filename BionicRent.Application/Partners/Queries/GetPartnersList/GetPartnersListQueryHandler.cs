@@ -3,7 +3,7 @@
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jun 8, 2019 6:54 PM
+ * @Last Modified Time: Jun 22, 2019 6:02 PM
  * @Description: Modify Here, Please 
  */
 using System.Linq;
@@ -25,7 +25,7 @@ namespace BionicRent.Application.Partners.Queries.GetPartnersList {
 
         public async Task<FilterResultModel<PartnerViewModel>> Handle (GetPartnersListQuery request, CancellationToken cancellationToken) {
 
-            var sortBy = request.SortBy.Trim () != "" ? request.SortBy : "FirstName";
+            var sortBy = request.SortBy.Trim () != "" ? request.SortBy : "PartnerName";
             var sortDirection = (request.SortDirection.ToUpper () == "DESCENDING") ? true : false;
 
             FilterResultModel<PartnerViewModel> result = new FilterResultModel<PartnerViewModel> ();

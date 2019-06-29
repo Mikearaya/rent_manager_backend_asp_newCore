@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using BionicRent.Application.Models;
 using BionicRent.Application.Vehicles.Commands.CreateVehicle;
@@ -23,6 +24,12 @@ namespace BionicRent.Api.Controllers.Vehicles {
         [HttpGet ("{id}")]
         public async Task<ActionResult<VehicleViewModel>> FindVehicleById (uint id) {
             var vehicle = await _Mediator.Send (new GetVehicleQuery () { Id = id });
+            return Ok (vehicle);
+        }
+
+        [HttpGet ("index")]
+        public async Task<ActionResult<IEnumerable<VehicleIndexModel>>> GetVehiclesIndex (uint id) {
+            var vehicle = await _Mediator.Send (new GetVehiclesIndexQuery ());
             return Ok (vehicle);
         }
 

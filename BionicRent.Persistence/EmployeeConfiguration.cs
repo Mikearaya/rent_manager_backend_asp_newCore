@@ -18,16 +18,25 @@ namespace BionicRent.Persistence {
             builder.Property (e => e.EmployeeId).HasColumnName ("EMPLOYEE_ID");
 
             builder.Property (e => e.City)
-                .IsRequired ()
                 .HasColumnName ("city")
                 .HasColumnType ("varchar(20)")
                 .HasDefaultValueSql ("'Addis Ababa'");
 
             builder.Property (e => e.Country)
-                .IsRequired ()
                 .HasColumnName ("country")
                 .HasColumnType ("varchar(45)")
                 .HasDefaultValueSql ("'Ethiopia'");
+
+            builder.Property (e => e.DateAdded)
+                .HasColumnName ("date_added")
+                .HasColumnType ("datetime")
+                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'");
+
+            builder.Property (e => e.DateUpdated)
+                .HasColumnName ("date_updated")
+                .HasColumnType ("datetime")
+                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'")
+                .ValueGeneratedOnAddOrUpdate ();
 
             builder.Property (e => e.FirstName)
                 .IsRequired ()
@@ -35,7 +44,6 @@ namespace BionicRent.Persistence {
                 .HasColumnType ("varchar(20)");
 
             builder.Property (e => e.HouseNumber)
-                .IsRequired ()
                 .HasColumnName ("house_number")
                 .HasColumnType ("varchar(10)");
 
@@ -49,24 +57,16 @@ namespace BionicRent.Persistence {
                 .HasColumnName ("phone_number")
                 .HasColumnType ("varchar(45)");
 
-            builder.Property (e => e.RegisteredOn)
-                .HasColumnName ("registered_on")
-                .HasColumnType ("datetime")
-                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'");
-
             builder.Property (e => e.Role)
-                .IsRequired ()
                 .HasColumnName ("role")
                 .HasColumnType ("varchar(30)")
                 .HasDefaultValueSql ("'multi'");
 
             builder.Property (e => e.SubCity)
-                .IsRequired ()
                 .HasColumnName ("sub_city")
                 .HasColumnType ("varchar(20)");
 
             builder.Property (e => e.Wereda)
-                .IsRequired ()
                 .HasColumnName ("wereda")
                 .HasColumnType ("varchar(5)");
         }
