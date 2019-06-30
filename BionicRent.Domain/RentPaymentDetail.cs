@@ -6,7 +6,6 @@ namespace BionicRent.Domain {
         public uint Id { get; set; }
         public uint RentId { get; set; }
         public float PaymentAmount { get; set; }
-        public DateTime PaymentDate { get; set; }
         public uint PaymentId { get; set; }
         public DateTime? DateAdded { get; set; }
         public DateTime? DateUpdated { get; set; }

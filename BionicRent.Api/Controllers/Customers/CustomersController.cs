@@ -1,5 +1,4 @@
 using System.Threading.Tasks;
-using BionicRent.Application.CustomerPayments.Queries.GetList;
 using BionicRent.Application.Customers.Commands.CreateCustomer;
 using BionicRent.Application.Customers.Commands.DeleteCustomer;
 using BionicRent.Application.Customers.Commands.UpdateCustomer;
@@ -29,7 +28,7 @@ namespace BionicRent.Api.Controllers.Customers {
         }
 
         [HttpGet ("index")]
-        public async Task<ActionResult<CustomerViewModel>> GetCustomersIndex ([FromQuery] GetRemainingCustomerPaymentsQuery query) {
+        public async Task<ActionResult<CustomerViewModel>> GetCustomersIndex ([FromQuery] GetCustomersIndexQuery query) {
 
             var customer = await _Mediator.Send (query);
             return Ok (customer);

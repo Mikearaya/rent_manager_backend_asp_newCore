@@ -3,7 +3,7 @@
  * @Author:  Mikael Araya 
  * @Contact: MikaelAraya12@gmail.com 
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jun 29, 2019 2:26 PM
+ * @Last Modified Time: Jun 29, 2019 4:04 PM
  * @Description: Modify Here, Please  
  */
 using System;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using BionicRent.Domain;
 
-namespace BionicRent.Application.CustomerPayments.Models {
+namespace BionicRent.Application.Reports.Models {
     public class RemainingCustomerPaymentsModel {
         public uint CustomerId { get; set; }
         public string CustomerName { get; set; }

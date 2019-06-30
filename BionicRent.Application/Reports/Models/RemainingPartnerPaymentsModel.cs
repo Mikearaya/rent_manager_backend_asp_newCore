@@ -10,7 +10,7 @@ using BionicRent.Domain;
  * @Last Modified Time: Jun 29, 2019 10:43 AMM
  * @Description: Modify Here, Please  
  */
-namespace BionicRent.Application.PartnerPayments.Models {
+namespace BionicRent.Application.Reports.Models {
     public class RemainingPartnerPaymentsModel {
         public uint? PartnerId { get; set; }
         public string PartnerName { get; set; }

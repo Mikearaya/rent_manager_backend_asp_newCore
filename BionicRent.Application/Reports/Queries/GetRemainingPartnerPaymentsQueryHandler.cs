@@ -12,11 +12,11 @@ using System.Threading;
 using System.Threading.Tasks;
 using BionicRent.Application.interfaces;
 using BionicRent.Application.Models;
-using BionicRent.Application.PartnerPayments.Models;
+using BionicRent.Application.Reports.Models;
 using BionicRent.Commons.QueryHelpers;
 using MediatR;
 
-namespace BionicRent.Application.PartnerPayments.Queries.GetList {
+namespace BionicRent.Application.Reports.Queries.GetList {
     public class GetRemainingPartnerPaymentsQueryHandler : IRequestHandler<GetRemainingPartnerPaymentsQuery, FilterResultModel<RemainingPartnerPaymentsModel>> {
         private readonly IBionicRentDatabaseService _database;
 

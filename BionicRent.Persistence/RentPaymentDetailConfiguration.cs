@@ -28,11 +28,6 @@ namespace BionicRent.Persistence {
 
             builder.Property (e => e.PaymentAmount).HasColumnName ("payment_amount");
 
-            builder.Property (e => e.PaymentDate)
-                .HasColumnName ("payment_date")
-                .HasColumnType ("datetime")
-                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'");
-
             builder.Property (e => e.PaymentId).HasColumnName ("PAYMENT_ID");
 
             builder.Property (e => e.RentId).HasColumnName ("RENT_ID");

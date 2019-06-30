@@ -3,19 +3,19 @@
  * @Author:  Mikael Araya 
  * @Contact: MikaelAraya12@gmail.com 
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jun 29, 2019 11:56 AM
+ * @Last Modified Time: Jun 30, 2019 11:19 AM
  * @Description: Modify Here, Please  
  */
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using BionicRent.Application.CustomerPayments.Models;
 using BionicRent.Application.interfaces;
 using BionicRent.Application.Models;
+using BionicRent.Application.Reports.Models;
 using BionicRent.Commons.QueryHelpers;
 using MediatR;
 
-namespace BionicRent.Application.CustomerPayments.Queries.GetList {
+namespace BionicRent.Application.Reports.Queries {
     public class GetRemainingCustomerPaymentsQueryHandler : IRequestHandler<GetRemainingCustomerPaymentsQuery, FilterResultModel<RemainingCustomerPaymentsModel>> {
         private readonly IBionicRentDatabaseService _database;
 
@@ -29,7 +29,6 @@ namespace BionicRent.Application.CustomerPayments.Queries.GetList {
 
             FilterResultModel<RemainingCustomerPaymentsModel> result = new FilterResultModel<RemainingCustomerPaymentsModel> ();
             var remaining = _database.Rent
-                .Where (r => r.Vehicle.Owner != null)
                 .Select (RemainingCustomerPaymentsModel.Projection)
                 .Select (DynamicQueryHelper.GenerateSelectedColumns<RemainingCustomerPaymentsModel> (request.SelectedColumns))
                 .GroupBy (e => new { e.CustomerName, e.CustomerId })
