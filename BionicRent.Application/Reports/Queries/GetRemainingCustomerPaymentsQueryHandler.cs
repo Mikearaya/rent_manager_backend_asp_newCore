@@ -31,13 +31,14 @@ namespace BionicRent.Application.Reports.Queries {
             var remaining = _database.Rent
                 .Select (RemainingCustomerPaymentsModel.Projection)
                 .Select (DynamicQueryHelper.GenerateSelectedColumns<RemainingCustomerPaymentsModel> (request.SelectedColumns))
-                .GroupBy (e => new { e.CustomerName, e.CustomerId })
+                .GroupBy (e => new { e.CustomerId, e.CustomerName })
                 .Select (t => new RemainingCustomerPaymentsModel () {
                     CustomerName = t.Key.CustomerName,
                         CustomerId = t.Key.CustomerId,
                         Amount = t.Sum (o => o.Amount),
                         PaidAmount = t.Sum (o => o.PaidAmount)
                 })
+                .Where (r => r.RemainingPayment > 0)
                 .AsQueryable ();
 
             if (request.Filter.Count () > 0) {

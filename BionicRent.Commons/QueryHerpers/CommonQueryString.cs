@@ -4,7 +4,7 @@ using System;
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: May 28, 2019 1:49 PM
+ * @Last Modified Time: Jul 1, 2019 3:15 PM
  * @Description: Modify Here, Please 
  */
 using System.Collections.Generic;
@@ -15,8 +15,6 @@ namespace BionicRent.Commons.QueryHelpers {
     public class ApiQueryString {
 
         private int _pageNumber = 0;
-
-        public string Year { get; set; } = new EthiopicDateTime (DateTime.Now).Year.ToString ();
         private string _searchString = "";
         public string SortBy { get; set; } = "";
         public string SortDirection { get; set; } = "Asc";

@@ -24,6 +24,7 @@ namespace BionicRent.Application.PartnerPayments.Queries.GetList {
 
         public Task<IEnumerable<UnpaidPartnerRentModel>> Handle (GetUnpaidPartnerRentsQuery request, CancellationToken cancellationToken) {
             var remaining = _database.Rent
+                .Where (r => r.Vehicle.Owner != null)
                 .Where (r => r.Vehicle.OwnerId == request.PartnerId)
                 .Select (UnpaidPartnerRentModel.Projection)
                 .ToList ()

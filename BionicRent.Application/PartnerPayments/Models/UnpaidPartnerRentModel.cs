@@ -22,8 +22,8 @@ namespace BionicRent.Application.PartnerPayments.Models {
             get {
                 return rent => new UnpaidPartnerRentModel () {
                     RentId = rent.RentId,
-                    Amount = rent.RentedPrice * ((rent.ReturnDate != null) ? rent.ReturnDate.Value.Subtract (rent.StartDate).Days : DateTime.Now.Subtract (rent.StartDate).Days),
-                    PaidAmount = rent.RentPaymentDetail.Where (r => r.Payment.Partner != null).Sum (e => (decimal?) e.PaymentAmount) ?? 0,
+                    Amount = rent.OwnerRentingPrice * ((rent.ReturnDate != null) ? rent.ReturnDate.Value.Subtract (rent.StartDate).Days : DateTime.Now.Subtract (rent.StartDate).Days),
+                    PaidAmount = rent.RentPaymentDetail.Where (p => p.Payment.Partner != null).Sum (e => (decimal?) e.PaymentAmount) ?? 0,
                     StartDate = rent.StartDate,
                     EndDate = (rent.ReturnDate == null) ? DateTime.Now : rent.ReturnDate.Value
 
