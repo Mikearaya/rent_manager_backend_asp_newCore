@@ -3,7 +3,7 @@
  * @Author:  Mikael Araya 
  * @Contact: MikaelAraya12@gmail.com 
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jul 1, 2019 3:23 PM
+ * @Last Modified Time: Jul 1, 2019 4:15 PM
  * @Description: Modify Here, Please  
  */
 using System.Threading.Tasks;
@@ -37,6 +37,12 @@ namespace BionicRent.Api.Controllers.Reports {
 
         [HttpPost ("rent-history")]
         public async Task<ActionResult<FilterResultModel<RentHistoryModel>>> GetRentHistory ([FromBody] GetRentHistoryQuery query) {
+            var history = await _Mediator.Send (query);
+            return Ok (history);
+        }
+
+        [HttpPost ("partner-rent-history")]
+        public async Task<ActionResult<FilterResultModel<PartnersRentHistoryModel>>> GetPartnersRentHistory ([FromBody] GetPartnersRentHistoryQuery query) {
             var history = await _Mediator.Send (query);
             return Ok (history);
         }
