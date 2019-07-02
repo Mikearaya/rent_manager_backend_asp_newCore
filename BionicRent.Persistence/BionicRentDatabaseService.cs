@@ -10,14 +10,15 @@ namespace BionicRent.Persistence {
         public BionicRentDatabaseService () { }
         public BionicRentDatabaseService (DbContextOptions<BionicRentDatabaseService> options) : base (options) { }
 
-        public virtual DbSet<Customer> Customer { get; set; }
-        public virtual DbSet<Employee> Employee { get; set; }
-        public virtual DbSet<Rent> Rent { get; set; }
-        public virtual DbSet<RentPayment> RentPayment { get; set; }
-        public virtual DbSet<RentPaymentDetail> RentPaymentDetail { get; set; }
-        public virtual DbSet<Vehicle> Vehicle { get; set; }
-        public virtual DbSet<RentCondition> VehicleCondition { get; set; }
-        public virtual DbSet<VehicleOwner> VehicleOwner { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Employee> Employee { get; set; }
+        public DbSet<Rent> Rent { get; set; }
+        public DbSet<RentPayment> RentPayment { get; set; }
+        public DbSet<RentPaymentDetail> RentPaymentDetail { get; set; }
+        public DbSet<Vehicle> Vehicle { get; set; }
+        public DbSet<RentCondition> VehicleCondition { get; set; }
+        public DbSet<VehicleOwner> VehicleOwner { get; set; }
+        public DbSet<SystemLookup> SystemLookup { get; set; }
 
         public void Save () {
             this.SaveChanges ();

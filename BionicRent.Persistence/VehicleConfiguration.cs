@@ -1,3 +1,11 @@
+/*
+ * @CreateTime: Jul 2, 2019 11:30 AM 
+ * @Author:  Mikael Araya 
+ * @Contact: MikaelAraya12@gmail.com 
+ * @Last Modified By:  Mikael Araya 
+ * @Last Modified Time: Jul 2, 2019 11:30 AM 
+ * @Description: Modify Here, Please  
+ */
 using BionicRent.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -7,8 +15,14 @@ namespace BionicRent.Persistence {
         public void Configure (EntityTypeBuilder<Vehicle> builder) {
             builder.ToTable ("vehicle");
 
+            builder.HasIndex (e => e.Color)
+                .HasName ("fk_color_lookup");
+
             builder.HasIndex (e => e.OwnerId)
                 .HasName ("fk_car_owner_idx");
+
+            builder.HasIndex (e => e.Type)
+                .HasName ("fk_type_lookup");
 
             builder.Property (e => e.VehicleId).HasColumnName ("VEHICLE_ID");
 
@@ -20,10 +34,7 @@ namespace BionicRent.Persistence {
                 .HasColumnName ("chassis_number")
                 .HasColumnType ("varchar(45)");
 
-            builder.Property (e => e.Color)
-                .IsRequired ()
-                .HasColumnName ("color")
-                .HasColumnType ("varchar(45)");
+            builder.Property (e => e.Color).HasColumnName ("color");
 
             builder.Property (e => e.CylinderCount)
                 .HasColumnName ("cylinder_count")
@@ -83,21 +94,30 @@ namespace BionicRent.Persistence {
                 .HasColumnName ("transmission")
                 .HasColumnType ("varchar(20)");
 
-            builder.Property (e => e.Type)
-                .IsRequired ()
-                .HasColumnName ("type")
-                .HasColumnType ("varchar(45)");
+            builder.Property (e => e.Type).HasColumnName ("type");
 
             builder.Property (e => e.YearMade)
                 .IsRequired ()
                 .HasColumnName ("year_made")
                 .HasColumnType ("varchar(4)");
 
+            builder.HasOne (d => d.ColorNavigation)
+                .WithMany (p => p.VehicleColorNavigation)
+                .HasForeignKey (d => d.Color)
+                .OnDelete (DeleteBehavior.ClientSetNull)
+                .HasConstraintName ("fk_color_lookup");
+
             builder.HasOne (d => d.Owner)
                 .WithMany (p => p.Vehicle)
                 .HasForeignKey (d => d.OwnerId)
                 .OnDelete (DeleteBehavior.Cascade)
                 .HasConstraintName ("fk_vehicle_owner");
+
+            builder.HasOne (d => d.TypeNavigation)
+                .WithMany (p => p.VehicleTypeNavigation)
+                .HasForeignKey (d => d.Type)
+                .OnDelete (DeleteBehavior.ClientSetNull)
+                .HasConstraintName ("fk_type_lookup");
         }
     }
 }

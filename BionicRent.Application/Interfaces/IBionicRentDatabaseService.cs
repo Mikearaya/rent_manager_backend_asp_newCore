@@ -20,6 +20,7 @@ namespace BionicRent.Application.interfaces {
         DbSet<Vehicle> Vehicle { get; set; }
         DbSet<RentCondition> VehicleCondition { get; set; }
         DbSet<VehicleOwner> VehicleOwner { get; set; }
+        DbSet<SystemLookup> SystemLookup { get; set; }
         void Save ();
         Task SaveAsync ();
 

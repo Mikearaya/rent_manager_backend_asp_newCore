@@ -3,7 +3,7 @@
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jun 9, 2019 10:58 PM
+ * @Last Modified Time: Jul 2, 2019 11:30 AM
  * @Description: Modify Here, Please 
  */
 using System;
@@ -20,8 +20,8 @@ namespace BionicRent.Domain {
         public string Make { get; set; }
         public string Model { get; set; }
         public string YearMade { get; set; }
-        public string Color { get; set; }
-        public string Type { get; set; }
+        public uint Color { get; set; }
+        public uint Type { get; set; }
         public string ChassisNumber { get; set; }
         public string MotorNumber { get; set; }
         public string FuielType { get; set; }
@@ -35,7 +35,9 @@ namespace BionicRent.Domain {
         public string Transmission { get; set; }
         public DateTime? DateAdded { get; set; }
 
+        public virtual SystemLookup ColorNavigation { get; set; }
         public virtual VehicleOwner Owner { get; set; }
+        public virtual SystemLookup TypeNavigation { get; set; }
         public virtual ICollection<Rent> Rent { get; set; }
     }
 }
