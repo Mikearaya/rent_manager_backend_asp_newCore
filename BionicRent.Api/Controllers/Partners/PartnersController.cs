@@ -35,8 +35,8 @@ namespace BionicRent.Api.Controllers.Partners {
         }
 
         [HttpGet ("index")]
-        public async Task<ActionResult<IEnumerable<PartnersIndexModel>>> GetPartnersIndex () {
-            var owner = await _Mediator.Send (new GetPartnersIndexQuery());
+        public async Task<ActionResult<IEnumerable<PartnersIndexModel>>> GetPartnersIndex ([FromQuery] GetPartnersIndexQuery query) {
+            var owner = await _Mediator.Send (query);
             return Ok (owner);
         }
 

@@ -24,7 +24,12 @@ namespace BionicRent.Application.Vehicles.Queries.GetVehiclesList {
         }
 
         public async Task<IEnumerable<VehicleIndexModel>> Handle (GetVehiclesIndexQuery request, CancellationToken cancellationToken) {
-            return await _database.Vehicle.Select (VehicleIndexModel.Projection).ToListAsync ();
+            return await _database
+                .Vehicle
+                .Where (e => e.Rent.All (s => s.Status.ToUpper () == "RETURNED") || e.Rent.Count () == 0)
+                .Select (VehicleIndexModel.Projection)
+                .Where (e => e.PlateNumber.ToUpper ().StartsWith (request.SearchString.ToUpper ()))
+                .ToListAsync ();
         }
     }
 }

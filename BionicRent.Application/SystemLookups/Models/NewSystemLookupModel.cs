@@ -8,6 +8,7 @@
  */
 namespace BionicRent.Application.SystemLookups.Models {
     public class NewSystemLookupModel {
+        public uint? Id {get; set;}
         public string Type { get; set; }
         public string Value { get; set; }
 

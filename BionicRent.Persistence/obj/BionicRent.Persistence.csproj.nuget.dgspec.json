@@ -4,60 +4,6 @@
     "/var/www/html/BionicRent/BionicRent.Persistence/BionicRent.Persistence.csproj": {}
   },
   "projects": {
-    "/var/www/html/BionicRent/BackendSecurity.Domain/BackendSecurity.Domain.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "/var/www/html/BionicRent/BackendSecurity.Domain/BackendSecurity.Domain.csproj",
-        "projectName": "BackendSecurity.Domain",
-        "projectPath": "/var/www/html/BionicRent/BackendSecurity.Domain/BackendSecurity.Domain.csproj",
-        "packagesPath": "/home/appdiv/.nuget/packages/",
-        "outputPath": "/var/www/html/BionicRent/BackendSecurity.Domain/obj/",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "/home/appdiv/.nuget/NuGet/NuGet.Config"
-        ],
-        "originalTargetFrameworks": [
-          "netstandard2.0"
-        ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netstandard2.0": {
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netstandard2.0": {
-          "dependencies": {
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
-            }
-          },
-          "imports": [
-            "net461"
-          ],
-          "assetTargetFallback": true,
-          "warn": true
-        }
-      }
-    },
     "/var/www/html/BionicRent/BionicRent.Application/BionicRent.Application.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -82,9 +28,6 @@
         "frameworks": {
           "netstandard2.0": {
             "projectReferences": {
-              "/var/www/html/BionicRent/BackendSecurity.Domain/BackendSecurity.Domain.csproj": {
-                "projectPath": "/var/www/html/BionicRent/BackendSecurity.Domain/BackendSecurity.Domain.csproj"
-              },
               "/var/www/html/BionicRent/BionicRent.Commons/BionicRent.Commons.csproj": {
                 "projectPath": "/var/www/html/BionicRent/BionicRent.Commons/BionicRent.Commons.csproj"
               },
@@ -227,6 +170,10 @@
       "frameworks": {
         "netstandard2.0": {
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",

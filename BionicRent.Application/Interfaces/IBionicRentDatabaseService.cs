@@ -8,6 +8,7 @@
  */
 using System.Threading.Tasks;
 using BionicRent.Domain;
+using BionicRent.Domain.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace BionicRent.Application.interfaces {
@@ -21,6 +22,14 @@ namespace BionicRent.Application.interfaces {
         DbSet<RentCondition> VehicleCondition { get; set; }
         DbSet<VehicleOwner> VehicleOwner { get; set; }
         DbSet<SystemLookup> SystemLookup { get; set; }
+
+        DbSet<RoleClaims> RoleClaims { get; set; }
+        DbSet<ApplicationRole> Roles { get; set; }
+        DbSet<UserClaims> UserClaims { get; set; }
+        DbSet<UserLogins> UserLogins { get; set; }
+        DbSet<UserRoles> UserRoles { get; set; }
+        DbSet<ApplicationUser> Users { get; set; }
+        DbSet<UserTokens> UserTokens { get; set; }
         void Save ();
         Task SaveAsync ();
 

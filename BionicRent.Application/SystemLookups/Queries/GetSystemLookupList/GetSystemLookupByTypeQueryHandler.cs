@@ -25,7 +25,8 @@ namespace BionicRent.Application.SystemLookups.Queries.GetSystemLookupList {
 
         public Task<IEnumerable<SystemLookUpIndexModel>> Handle (GetSystemLookupByTypeQuery request, CancellationToken cancellationToken) {
             var lookup = _database.SystemLookup
-                .Where (c => c.Type.ToLower () == request.Type.ToLower ())
+                .Where (c => c.Type.Trim ().ToLower ().Equals (request.Type.Trim ().ToLower ()) &&
+                    c.Value.Trim ().ToLower ().StartsWith (request.SearchString.ToLower ().Trim ()))
                 .Select (SystemLookUpIndexModel.Projection)
                 .Select (DynamicQueryHelper.GenerateSelectedColumns<SystemLookUpIndexModel> (request.SelectedColumns))
                 .Skip (request.PageNumber * request.PageSize)

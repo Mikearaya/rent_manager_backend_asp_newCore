@@ -21,7 +21,6 @@
     <ProjectReference Include="..\BionicRent.Infrastructure\BionicRent.Infrastructure.csproj"/>
     <ProjectReference Include="..\BionicRent.Persistence\BionicRent.Persistence.csproj"/>
     <ProjectReference Include="..\BionicRent.Application\BionicRent.Application.csproj"/>
-    <ProjectReference Include="..\BackendSecurity.Persistance\BackendSecurity.Persistance.csproj"/>
 
   </ItemGroup>
 

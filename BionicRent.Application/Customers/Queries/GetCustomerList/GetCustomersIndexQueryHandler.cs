@@ -26,6 +26,7 @@ namespace BionicRent.Application.Customers.Queries.GetCustomerList {
         public async Task<IEnumerable<CustomerIndexModel>> Handle (GetCustomersIndexQuery request, CancellationToken cancellationToken) {
             return await _database.Customer
                 .Select (CustomerIndexModel.Projection)
+                .Where (c => c.Name.ToUpper ().StartsWith (request.SearchString.ToUpper ()))
                 .ToListAsync ();
         }
     }

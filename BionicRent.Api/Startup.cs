@@ -1,33 +1,24 @@
 ﻿using System;
 using System.Buffers;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using AccountingBackend.Api.Filters;
-using BackendSecurity.Domain.Identity;
-using BackendSecurity.Persistance;
 using BionicRent.Api.Commons;
 using BionicRent.Api.Configurations;
 using BionicRent.Application.Customers.Commands.CreateCustomer;
 using BionicRent.Application.interfaces;
 using BionicRent.Application.Infrastructure;
-using BionicRent.Application.Interfaces;
+using BionicRent.Domain.Identity;
 using BionicRent.Persistence;
-using FluentValidation.AspNetCore;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -43,10 +34,6 @@ namespace BionicRent.Api {
                 context.Database.EnsureCreated ();
             }
 
-            using (var context = new SecurityDatabaseService ()) {
-                context.Database.EnsureCreated ();
-            }
-
         }
 
         public IConfiguration Configuration { get; }
@@ -58,8 +45,8 @@ namespace BionicRent.Api {
             // Add AutoMapper
 
             services.AddSingleton<JwtSettings> (settings);
-            services.AddScoped<ISecurityDatabaseService, SecurityDatabaseService> ();
-            services.AddDbContext<SecurityDatabaseService> ();
+            services.AddScoped<IBionicRentDatabaseService, BionicRentDatabaseService> ();
+            services.AddDbContext<BionicRentDatabaseService> ();
 
             services.AddScoped<IBionicRentDatabaseService, BionicRentDatabaseService> ();
             services.AddDbContext<BionicRentDatabaseService> ();
@@ -88,16 +75,16 @@ namespace BionicRent.Api {
             });
 
             services.AddIdentityCore<ApplicationUser> (options => { });
-            new IdentityBuilder (typeof (ApplicationUser), typeof (IdentityRole), services)
-                .AddRoleManager<RoleManager<IdentityRole>> ()
+            new IdentityBuilder (typeof (ApplicationUser), typeof (ApplicationRole), services)
+                .AddRoleManager<RoleManager<ApplicationRole>> ()
                 .AddSignInManager<SignInManager<ApplicationUser>> ()
-                .AddEntityFrameworkStores<SecurityDatabaseService> ();
+                .AddEntityFrameworkStores<BionicRentDatabaseService> ();
 
             services.AddSwaggerDocument (config => {
                 config.PostProcess = document => {
                     document.Info.Version = "v1";
-                    document.Info.Title = "Accounting API";
-                    document.Info.Description = "API responsible for accounting system";
+                    document.Info.Title = "Bionic Rent API";
+                    document.Info.Description = "API responsible for Rent System";
                     document.Info.TermsOfService = "None";
                     document.Info.Contact = new NSwag.SwaggerContact {
                         Name = "Mikael Araya",

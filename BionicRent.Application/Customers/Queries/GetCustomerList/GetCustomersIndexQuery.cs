@@ -12,6 +12,14 @@ using MediatR;
 
 namespace BionicRent.Application.Customers.Queries.GetCustomerList {
     public class GetCustomersIndexQuery : IRequest<IEnumerable<CustomerIndexModel>> {
-        public string Name { get; set; }
+        private string CustomerName { get; set; } = "";
+        public string SearchString {
+            get {
+                return CustomerName;
+            }
+            set {
+                CustomerName = (value == null) ? "" : value;
+            }
+        }
     }
 }

@@ -12,6 +12,6 @@ using MediatR;
 
 namespace BionicRent.Application.SystemLookups.Commands.UpdateSystemLookup {
     public class UpdateSystemLookupCommand : IRequest {
-        public IEnumerable<UpdatedSystemLookupModel> Lookups { get; set; } = new List<UpdatedSystemLookupModel> ();
+        public IEnumerable<NewSystemLookupModel> Lookups { get; set; } = new List<NewSystemLookupModel> ();
     }
 }

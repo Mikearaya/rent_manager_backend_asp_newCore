@@ -28,8 +28,8 @@ namespace BionicRent.Api.Controllers.Vehicles {
         }
 
         [HttpGet ("index")]
-        public async Task<ActionResult<IEnumerable<VehicleIndexModel>>> GetVehiclesIndex (uint id) {
-            var vehicle = await _Mediator.Send (new GetVehiclesIndexQuery ());
+        public async Task<ActionResult<IEnumerable<VehicleIndexModel>>> GetVehiclesIndex ([FromQuery] GetVehiclesIndexQuery query) {
+            var vehicle = await _Mediator.Send (query);
             return Ok (vehicle);
         }
 

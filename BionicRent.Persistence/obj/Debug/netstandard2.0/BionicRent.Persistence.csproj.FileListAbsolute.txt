@@ -1,13 +1,11 @@
 /var/www/html/BionicRent/BionicRent.Persistence/bin/Debug/netstandard2.0/BionicRent.Persistence.deps.json
 /var/www/html/BionicRent/BionicRent.Persistence/bin/Debug/netstandard2.0/BionicRent.Persistence.dll
 /var/www/html/BionicRent/BionicRent.Persistence/bin/Debug/netstandard2.0/BionicRent.Persistence.pdb
-/var/www/html/BionicRent/BionicRent.Persistence/bin/Debug/netstandard2.0/BackendSecurity.Domain.dll
 /var/www/html/BionicRent/BionicRent.Persistence/bin/Debug/netstandard2.0/BionicRent.Application.dll
 /var/www/html/BionicRent/BionicRent.Persistence/bin/Debug/netstandard2.0/BionicRent.Commons.dll
 /var/www/html/BionicRent/BionicRent.Persistence/bin/Debug/netstandard2.0/BionicRent.Domain.dll
 /var/www/html/BionicRent/BionicRent.Persistence/bin/Debug/netstandard2.0/BionicRent.Domain.pdb
 /var/www/html/BionicRent/BionicRent.Persistence/bin/Debug/netstandard2.0/BionicRent.Application.pdb
-/var/www/html/BionicRent/BionicRent.Persistence/bin/Debug/netstandard2.0/BackendSecurity.Domain.pdb
 /var/www/html/BionicRent/BionicRent.Persistence/bin/Debug/netstandard2.0/BionicRent.Commons.pdb
 /var/www/html/BionicRent/BionicRent.Persistence/obj/Debug/netstandard2.0/BionicRent.Persistence.csprojAssemblyReference.cache
 /var/www/html/BionicRent/BionicRent.Persistence/obj/Debug/netstandard2.0/BionicRent.Persistence.csproj.CoreCompileInputs.cache

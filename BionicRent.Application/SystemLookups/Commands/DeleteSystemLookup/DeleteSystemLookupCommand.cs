@@ -10,6 +10,6 @@ using MediatR;
 
 namespace BionicRent.Application.SystemLookups.Commands.DeleteSystemLookup {
     public class DeleteSystemLookupCommand : IRequest {
-        public int Id { get; set; }
+        public uint Id { get; set; }
     }
 }

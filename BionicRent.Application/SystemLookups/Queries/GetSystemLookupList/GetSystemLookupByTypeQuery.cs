@@ -13,6 +13,16 @@ using MediatR;
 
 namespace BionicRent.Application.SystemLookups.Queries.GetSystemLookupList {
     public class GetSystemLookupByTypeQuery : ApiQueryString, IRequest<IEnumerable<SystemLookUpIndexModel>> {
+        private string Term { get; set; } = "";
+
         public string Type { get; set; }
+        public string SearchString {
+            get {
+                return Term;
+            }
+            set {
+                Term = (value == null) ? "" : value;
+            }
+        }
     }
 }

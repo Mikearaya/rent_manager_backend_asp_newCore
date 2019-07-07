@@ -27,10 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BionicRent.Domain.Test", "B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BionicRent.Persistence.Test", "BionicRent.Persistence.Test\BionicRent.Persistence.Test.csproj", "{F8783FFC-DE92-4532-907D-B2583821CF4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendSecurity.Domain", "BackendSecurity.Domain\BackendSecurity.Domain.csproj", "{31E4323E-17DB-415C-88E7-2E9759A9BB31}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackendSecurity.Persistance", "BackendSecurity.Persistance\BackendSecurity.Persistance.csproj", "{5F31A391-6146-4D1F-87D7-A298D11130B3}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

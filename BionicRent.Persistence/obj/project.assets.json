@@ -1172,25 +1172,11 @@
           "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll": {}
         }
       },
-      "BackendSecurity.Domain/1.0.0": {
-        "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.2.0"
-        },
-        "compile": {
-          "bin/placeholder/BackendSecurity.Domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/BackendSecurity.Domain.dll": {}
-        }
-      },
       "BionicRent.Application/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
           "AutoMapper": "8.1.1",
-          "BackendSecurity.Domain": "1.0.0",
           "BionicRent.Commons": "1.0.0",
           "BionicRent.Domain": "1.0.0",
           "FluentValidation": "8.2.3",
@@ -1219,6 +1205,9 @@
       "BionicRent.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.2.0"
+        },
         "compile": {
           "bin/placeholder/BionicRent.Domain.dll": {}
         },
@@ -4051,11 +4040,6 @@
         "system.threading.tasks.extensions.4.3.0.nupkg.sha512",
         "system.threading.tasks.extensions.nuspec"
       ]
-    },
-    "BackendSecurity.Domain/1.0.0": {
-      "type": "project",
-      "path": "../BackendSecurity.Domain/BackendSecurity.Domain.csproj",
-      "msbuildProject": "../BackendSecurity.Domain/BackendSecurity.Domain.csproj"
     },
     "BionicRent.Application/1.0.0": {
       "type": "project",

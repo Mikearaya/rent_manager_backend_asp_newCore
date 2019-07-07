@@ -52,7 +52,7 @@ namespace BionicRent.Api.Controllers.SystemLookups {
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        [HttpGet ("type")]
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<SystemLookupViewModel>>> GetSystemLookupList ([FromQuery] GetSystemLookupByTypeQuery query) {
             var lookup = await _Mediator.Send (query);
             return Ok (lookup);
@@ -100,7 +100,7 @@ namespace BionicRent.Api.Controllers.SystemLookups {
         /// <returns></returns>
 
         [HttpDelete ("{id}")]
-        public async Task<ActionResult> DeleteSystemLookup (int id) {
+        public async Task<ActionResult> DeleteSystemLookup (uint id) {
             var result = await _Mediator.Send (new DeleteSystemLookupCommand () { Id = id });
             return NoContent ();
         }

@@ -11,7 +11,7 @@ namespace BionicRent.Application.Vehicles.Models {
             get {
                 return vehicle => new VehicleIndexModel () {
                     Id = vehicle.VehicleId,
-                    PlateNumber = vehicle.PlateNumber
+                    PlateNumber = $"{vehicle.PlateCode}-{vehicle.PlateNumber}"
                 };
             }
         }

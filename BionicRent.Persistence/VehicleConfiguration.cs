@@ -43,12 +43,12 @@ namespace BionicRent.Persistence {
             builder.Property (e => e.DateAdded)
                 .HasColumnName ("date_added")
                 .HasColumnType ("datetime")
-                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'");
+                .HasDefaultValueSql ("CURRENT_TIMESTAMP");
 
             builder.Property (e => e.DateUpdated)
                 .HasColumnName ("date_updated")
                 .HasColumnType ("datetime")
-                .HasDefaultValueSql ("'CURRENT_TIMESTAMP'")
+                .HasDefaultValueSql ("CURRENT_TIMESTAMP")
                 .ValueGeneratedOnAddOrUpdate ();
 
             builder.Property (e => e.FuielType)

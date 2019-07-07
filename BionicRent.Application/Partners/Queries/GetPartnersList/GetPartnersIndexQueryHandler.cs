@@ -24,7 +24,10 @@ namespace BionicRent.Application.Partners.Queries.GetPartnersList {
         }
 
         public async Task<IEnumerable<PartnersIndexModel>> Handle (GetPartnersIndexQuery request, CancellationToken cancellationToken) {
-            return await _database.VehicleOwner.Select (PartnersIndexModel.Projection).ToListAsync ();
+            return await _database.VehicleOwner
+                .Select (PartnersIndexModel.Projection)
+                .Where (p => p.Name.ToUpper ().StartsWith (request.SearchString.ToUpper ()))
+                .ToListAsync ();
         }
     }
 }

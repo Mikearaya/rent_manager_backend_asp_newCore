@@ -7,46 +7,34 @@
  * @Description: Modify Here, Please 
  */
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using BionicRent.Application.Exceptions;
 using BionicRent.Application.interfaces;
+using BionicRent.Application.SystemLookups.Models;
 using BionicRent.Domain;
 using MediatR;
 
 namespace BionicRent.Application.SystemLookups.Commands.UpdateSystemLookup {
     public class UpdateSystemLookupCommandHandler : IRequestHandler<UpdateSystemLookupCommand, Unit> {
         private readonly IBionicRentDatabaseService _database;
+        private IMapper _Mapper;
 
         public UpdateSystemLookupCommandHandler (IBionicRentDatabaseService database) {
             _database = database;
+            _Mapper = new MapperConfiguration (c => {
+                c.CreateMap<NewSystemLookupModel, SystemLookup> ();
+            }).CreateMapper ();
+
         }
 
         public async Task<Unit> Handle (UpdateSystemLookupCommand request, CancellationToken cancellationToken) {
 
-            foreach (var item in request.Lookups) {
+            var lookups = _Mapper.Map<IEnumerable<NewSystemLookupModel>, IEnumerable<SystemLookup>> (request.Lookups);
 
-                if (item.Id != 0) {
-                    var look = await _database.SystemLookup.FindAsync (item.Id);
-
-                    if (look == null) {
-                        throw new NotFoundException ("System lookup", item.Id);
-                    }
-                    look.Type = item.Type;
-                    look.Value = item.Value;
-                    look.DateUpdated = DateTime.Now;
-                    _database.SystemLookup.Update (look);
-
-                } else {
-
-                    _database.SystemLookup.Add (new SystemLookup () {
-                        Type = item.Type,
-                            Value = item.Value,
-                            DateAdded = DateTime.Now,
-                            DateUpdated = DateTime.Now
-                    });
-                }
-            }
+            _database.SystemLookup.UpdateRange (lookups);
 
             await _database.SaveAsync ();
 

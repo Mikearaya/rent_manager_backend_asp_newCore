@@ -1005,18 +1005,9 @@
           }
         }
       },
-      "BackendSecurity.Domain/1.0.0": {
-        "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.2.0"
-        },
-        "runtime": {
-          "BackendSecurity.Domain.dll": {}
-        }
-      },
       "BionicRent.Application/1.0.0": {
         "dependencies": {
           "AutoMapper": "8.1.1",
-          "BackendSecurity.Domain": "1.0.0",
           "BionicRent.Commons": "1.0.0",
           "BionicRent.Domain": "1.0.0",
           "FluentValidation": "8.2.3",
@@ -1035,6 +1026,9 @@
         }
       },
       "BionicRent.Domain/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.2.0"
+        },
         "runtime": {
           "BionicRent.Domain.dll": {}
         }
@@ -1676,11 +1670,6 @@
       "sha512": "sha512-npvJkVKl5rKXrtl1Kkm6OhOUaYGEiF9wFbppFRWSMoApKzt2PiPHT2Bb8a5sAWxprvdOAtvaARS9QYMznEUtug==",
       "path": "system.threading.tasks.extensions/4.3.0",
       "hashPath": "system.threading.tasks.extensions.4.3.0.nupkg.sha512"
-    },
-    "BackendSecurity.Domain/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     },
     "BionicRent.Application/1.0.0": {
       "type": "project",

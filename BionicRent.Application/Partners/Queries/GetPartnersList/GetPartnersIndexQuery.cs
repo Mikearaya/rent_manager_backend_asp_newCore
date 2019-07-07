@@ -12,6 +12,14 @@ using MediatR;
 
 namespace BionicRent.Application.Partners.Queries.GetPartnersList {
     public class GetPartnersIndexQuery : IRequest<IEnumerable<PartnersIndexModel>> {
-        public string Name { get; set; } = "";
+        private string PartnerName { get; set; } = "";
+        public string SearchString {
+            get {
+                return PartnerName;
+            }
+            set {
+                PartnerName = (value == null) ? "" : value;
+            }
+        }
     }
 }

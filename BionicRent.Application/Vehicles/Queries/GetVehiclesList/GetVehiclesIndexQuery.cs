@@ -4,6 +4,14 @@ using MediatR;
 
 namespace BionicRent.Application.Vehicles.Queries.GetVehiclesList {
     public class GetVehiclesIndexQuery : IRequest<IEnumerable<VehicleIndexModel>> {
-        public string PlateNumber { get; set; } = "";
+        private string PlateNumber { get; set; } = "";
+        public string SearchString {
+            get {
+                return PlateNumber;
+            }
+            set {
+                PlateNumber = (value == null) ? "" : value;
+            }
+        }
     }
 }
