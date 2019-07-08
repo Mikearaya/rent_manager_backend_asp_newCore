@@ -3,15 +3,17 @@
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Apr 26, 2019 12:32 PM
+ * @Last Modified Time: Jul 8, 2019 3:51 PM
  * @Description: Modify Here, Please 
  */
 using System.Collections.Generic;
+using BionicRent.Application.Models;
 using BionicRent.Application.Users.Models;
+using BionicRent.Commons.QueryHelpers;
 using MediatR;
 
 namespace BionicRent.Application.Users.Queries.GetUserList {
-    public class GetUsersListViewQuery : IRequest<IEnumerable<UserViewModel>> {
+    public class GetUsersListViewQuery : ApiQueryString, IRequest<FilterResultModel<UserViewModel>> {
 
     }
 }

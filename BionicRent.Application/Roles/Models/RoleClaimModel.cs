@@ -6,7 +6,7 @@ using BionicRent.Domain.Identity;
  * @Author:  Mikael Araya 
  * @Contact: MikaelAraya12@gmail.com 
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jul 7, 2019 8:38 PM
+ * @Last Modified Time: Jul 7, 2019 9:13 PM
  * @Description: Modify Here, Please  
  */
 namespace BionicRent.Application.Roles.Models {
@@ -15,6 +15,15 @@ namespace BionicRent.Application.Roles.Models {
         public string ClaimValue { get; set; }
 
         public static Expression<Func<RoleClaims, RoleClaimModel>> Projection {
+            get {
+                return claim => new RoleClaimModel () {
+                    ClaimType = claim.ClaimType,
+                    ClaimValue = claim.ClaimValue
+                };
+            }
+        }
+
+        public static Expression<Func<UserClaims, RoleClaimModel>> UserProjection {
             get {
                 return claim => new RoleClaimModel () {
                     ClaimType = claim.ClaimType,

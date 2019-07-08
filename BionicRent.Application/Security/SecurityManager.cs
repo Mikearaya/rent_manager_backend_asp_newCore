@@ -35,12 +35,15 @@ namespace BionicRent.Application.Security {
             return ret;
         }
 
-        public List<UserClaims> GetUserClaims (ApplicationUser authUser) {
-            List<UserClaims> list = new List<UserClaims> ();
+        public List<RoleClaims> GetUserClaims (ApplicationUser authUser) {
+            List<RoleClaims> list = new List<RoleClaims> ();
 
             try {
-                list = _securityDatabase.UserClaims
-                    .Where (a => a.UserId == authUser.Id)
+                list = (from a in _securityDatabase.UserRoles.Where (a => a.UserId == authUser.Id) join role in _securityDatabase.Roles on a.RoleId equals role.Id join roleClaim in _securityDatabase.RoleClaims on role.Id equals roleClaim.RoleId select new RoleClaims {
+                        ClaimType = roleClaim.ClaimType,
+                            ClaimValue = roleClaim.ClaimValue
+                    })
+
                     .ToList ();
             } catch (Exception) {
 
@@ -52,7 +55,7 @@ namespace BionicRent.Application.Security {
 
         public AppUserAuth BuildUserAuthObject (ApplicationUser authUser) {
             AppUserAuth ret = new AppUserAuth ();
-            List<UserClaims> claims = new List<UserClaims> ();
+            List<RoleClaims> claims = new List<RoleClaims> ();
 
             ret.UserName = authUser.UserName;
             ret.IsAuthenticated = true;
@@ -60,7 +63,7 @@ namespace BionicRent.Application.Security {
 
             claims = GetUserClaims (authUser);
 
-            foreach (UserClaims claim in claims) {
+            foreach (RoleClaims claim in claims) {
 
                 try {
                     typeof (AppUserAuth).GetProperty (claim.ClaimType).SetValue (ret, Convert.ToBoolean (claim.ClaimValue), null);

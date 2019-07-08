@@ -158,10 +158,17 @@ namespace BionicRent.Api.Controllers.Security {
                                     .Where (u => u.UserId == authUser.Id)
                                     .ToList (); */
 
+                list = (from a in _database.UserRoles.Where (a => a.UserId == authUser.Id) join role in _database.Roles on a.RoleId equals role.Id join roleClaim in _database.RoleClaims on role.Id equals roleClaim.RoleId select new RoleClaims {
+                        ClaimType = roleClaim.ClaimType,
+                            ClaimValue = roleClaim.ClaimValue
+                    })
+
+                    .ToList ();
+
             } catch (Exception ex) {
                 throw new Exception ("Exception trying toretrive user claims", ex);
             }
-
+            Console.WriteLine (list.Count ());
             return list;
         }
 

@@ -3,7 +3,7 @@
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Apr 28, 2019 3:34 PM
+ * @Last Modified Time: Jul 8, 2019 4:14 PM
  * @Description: Modify Here, Please 
  */
 
@@ -27,7 +27,7 @@ namespace BionicRent.API.Controllers.Users {
     /// <summary>
     /// Manages system user data
     /// </summary>
-    [Route ("users")]
+    [Route ("api/system-users")]
     public class UsersController : Controller {
         private readonly IMediator _Mediator;
         /// <summary>
@@ -68,6 +68,20 @@ namespace BionicRent.API.Controllers.Users {
         public async Task<ActionResult<IEnumerable<UserViewModel>>> GetAllUsers () {
 
             var user = await _Mediator.Send (new GetUsersListViewQuery ());
+            return StatusCode (200, user);
+        }
+
+        [HttpGet ("index")]
+        public async Task<ActionResult<IEnumerable<UserIndexModel>>> GetUsersIndex ([FromQuery] GetUsersIndexQuery query) {
+            var users = await _Mediator.Send (query);
+            return StatusCode (200, users);
+        }
+
+        [HttpPost ("filter")]
+        [DisplayName ("View Users")]
+        public async Task<ActionResult<IEnumerable<UserViewModel>>> GetAllUsers ([FromQuery] GetUsersListViewQuery query) {
+
+            var user = await _Mediator.Send (query);
             return StatusCode (200, user);
         }
 

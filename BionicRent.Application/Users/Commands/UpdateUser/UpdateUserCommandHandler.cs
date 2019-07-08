@@ -1,9 +1,10 @@
+using System.Linq;
 /*
  * @CreateTime: Apr 26, 2019 11:11 AM
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Apr 26, 2019 12:27 PM
+ * @Last Modified Time: Jul 8, 2019 3:47 PM
  * @Description: Modify Here, Please 
  */
 
@@ -27,6 +28,7 @@ namespace BionicRent.Application.Users.Commands.UpdateUser {
 
         public async Task<Unit> Handle (UpdateUserCommand request, CancellationToken cancellationToken) {
             var user = await _userManager.Users
+                .Include (u => u.UserRoles.FirstOrDefault ())
                 .FirstOrDefaultAsync (u => u.Id == request.Id);
 
             if (user == null) {

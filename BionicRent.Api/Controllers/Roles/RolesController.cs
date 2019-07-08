@@ -21,7 +21,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BionicRent.API.Controllers.Securities.Roles {
 
-    [Route ("api/roles")]
+    [Route ("api/system-roles")]
     [DisplayName ("User Role")]
     public class RolesController : Controller {
         private readonly IMediator _Mediator;
