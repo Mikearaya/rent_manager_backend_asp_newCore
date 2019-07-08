@@ -3,7 +3,7 @@
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jul 7, 2019 8:34 PM
+ * @Last Modified Time: Jul 8, 2019 4:25 PM
  * @Description: Modify Here, Please 
  */
 using System;
@@ -14,7 +14,7 @@ using BionicRent.Domain.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
-namespace BionicRent.Application.Roles.Commands.CreateRole {
+namespace BionicRent.Application.Roles.Commands.CreateCommand {
     public class CreateRoleCommandHandler : IRequestHandler<CreateRoleCommand, string> {
         private readonly RoleManager<ApplicationRole> _roleManager;
         private readonly IBionicRentDatabaseService _database;

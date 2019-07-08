@@ -3,13 +3,13 @@
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jul 7, 2019 8:23 PM
+ * @Last Modified Time: Jul 8, 2019 4:41 PM
  * @Description: Modify Here, Please 
  */
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading.Tasks;
-using BionicRent.Application.Roles.Commands.CreateRole;
+using BionicRent.Application.Roles.Commands.CreateCommand;
 using BionicRent.Application.Roles.Commands.DeleteCommand;
 using BionicRent.Application.Roles.Commands.UpdateCommand;
 using BionicRent.Application.Roles.Models;
@@ -36,6 +36,25 @@ namespace BionicRent.API.Controllers.Securities.Roles {
         [ProducesResponseType (500)]
         public async Task<ActionResult<IEnumerable<RoleViewModel>>> GetAllUserRoles () {
             var roles = await _Mediator.Send (new GetRoleListViewQuery ());
+            return StatusCode (200, roles);
+
+        }
+
+        [HttpGet ("index")]
+        [ProducesResponseType (200)]
+        [ProducesResponseType (500)]
+        public async Task<ActionResult<IEnumerable<RoleViewModel>>> GetRolesIndex ([FromQuery] GetRoleIndexQuery query) {
+            var roles = await _Mediator.Send (query);
+            return StatusCode (200, roles);
+
+        }
+
+        [HttpPost ("filter")]
+        [DisplayName ("View system roles list")]
+        [ProducesResponseType (200)]
+        [ProducesResponseType (500)]
+        public async Task<ActionResult<IEnumerable<RoleViewModel>>> GetAllUserRoles ([FromQuery] GetRoleListViewQuery query) {
+            var roles = await _Mediator.Send (query);
             return StatusCode (200, roles);
 
         }
