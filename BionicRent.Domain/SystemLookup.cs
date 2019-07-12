@@ -2,8 +2,8 @@
  * @CreateTime: Jul 2, 2019 11:27 AM 
  * @Author:  Mikael Araya 
  * @Contact: MikaelAraya12@gmail.com 
- * @Last Modified By:  Mikael Araya 
- * @Last Modified Time: Jul 2, 2019 11:27 AM 
+ * @Last Modified By:  Mikael Araya
+ * @Last Modified Time: Jul 11, 2019 3:14 PM
  * @Description: Modify Here, Please  
  */
 using System;
@@ -22,7 +22,7 @@ namespace BionicRent.Domain {
         public DateTime? DateAdded { get; set; }
         public DateTime? DateUpdated { get; set; }
 
-        public virtual ICollection<Vehicle> VehicleColorNavigation { get; set; }
-        public virtual ICollection<Vehicle> VehicleTypeNavigation { get; set; }
+        public ICollection<Vehicle> VehicleColorNavigation { get; set; }
+        public ICollection<Vehicle> VehicleTypeNavigation { get; set; }
     }
 }

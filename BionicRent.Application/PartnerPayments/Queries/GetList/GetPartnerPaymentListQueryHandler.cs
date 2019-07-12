@@ -14,7 +14,6 @@ using BionicRent.Application.Models;
 using BionicRent.Application.PartnerPayments.Models;
 using BionicRent.Commons.QueryHelpers;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 
 namespace BionicRent.Application.PartnerPayments.Queries.GetList {
     public class GetPartnerPaymentListQueryHandler : IRequestHandler<GetPartnerPaymentsListQuery, FilterResultModel<PartnerPaymentListModel>> {

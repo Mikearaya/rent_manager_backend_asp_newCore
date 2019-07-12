@@ -3,14 +3,14 @@
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jun 29, 2019 2:16 PM
+ * @Last Modified Time: Jul 11, 2019 3:14 PM
  * @Description: Modify Here, Please 
  */
 using System;
 using System.Collections.Generic;
 
 namespace BionicRent.Domain {
-    public class Rent {
+    public partial class Rent {
         public Rent () {
             RentCondition = new HashSet<RentCondition> ();
             RentPaymentDetail = new HashSet<RentPaymentDetail> ();
@@ -30,10 +30,10 @@ namespace BionicRent.Domain {
         public string Status { get; set; }
         public DateTime? EndDate { get; set; }
 
-        public virtual Customer Customer { get; set; }
-        public virtual Employee RentedByNavigation { get; set; }
-        public virtual Vehicle Vehicle { get; set; }
-        public virtual ICollection<RentCondition> RentCondition { get; set; }
-        public virtual ICollection<RentPaymentDetail> RentPaymentDetail { get; set; }
+        public Customer Customer { get; set; }
+        public Employee RentedByNavigation { get; set; }
+        public Vehicle Vehicle { get; set; }
+        public ICollection<RentCondition> RentCondition { get; set; }
+        public ICollection<RentPaymentDetail> RentPaymentDetail { get; set; }
     }
 }

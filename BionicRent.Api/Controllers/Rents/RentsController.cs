@@ -1,3 +1,11 @@
+/*
+ * @CreateTime: Jul 10, 2019 9:24 PM 
+ * @Author:  Mikael Araya 
+ * @Contact: MikaelAraya12@gmail.com 
+ * @Last Modified By:  Mikael Araya
+ * @Last Modified Time: Jul 10, 2019 9:26 PM
+ * @Description: Modify Here, Please  
+ */
 using System.Threading.Tasks;
 using BionicRent.Application.Models;
 using BionicRent.Application.Rents.Commands.CreateRent;
@@ -23,6 +31,12 @@ namespace BionicRent.Api.Controllers.Rents {
             var rent = await _Mediator.Send (new GetRentQuery () { Id = id });
             return Ok (rent);
 
+        }
+
+        [HttpGet ("{id}/contract")]
+        public async Task<ActionResult<RentContractView>> GetRentContract (uint id) {
+            var contract = await _Mediator.Send (new GetRentContractQuery () { Id = id });
+            return StatusCode (200, contract);
         }
 
         [HttpPost ("filter")]

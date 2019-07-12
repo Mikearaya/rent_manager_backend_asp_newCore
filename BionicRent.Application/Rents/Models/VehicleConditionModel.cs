@@ -57,5 +57,9 @@ namespace BionicRent.Application.Rents.Models {
                 };
             }
         }
+
+        public static VehicleConditionModel Create (RentCondition rent) {
+            return Projection.Compile ().Invoke (rent);
+        }
     }
 }

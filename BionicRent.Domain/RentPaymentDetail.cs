@@ -10,7 +10,7 @@ namespace BionicRent.Domain {
         public DateTime? DateAdded { get; set; }
         public DateTime? DateUpdated { get; set; }
 
-        public virtual RentPayment Payment { get; set; }
-        public virtual Rent Rent { get; set; }
+        public RentPayment Payment { get; set; }
+        public Rent Rent { get; set; }
     }
 }

@@ -3,7 +3,7 @@
  * @Author:  Mikael Araya
  * @Contact: MikaelAraya12@gmail.com
  * @Last Modified By:  Mikael Araya
- * @Last Modified Time: Jun 29, 2019 2:17 PM
+ * @Last Modified Time: Jul 11, 2019 3:14 PM
  * @Description: Modify Here, Please 
  */
 using System;
@@ -31,7 +31,7 @@ namespace BionicRent.Domain {
         public string HotelPhone { get; set; }
         public DateTime? DateUpdated { get; set; }
 
-        public virtual ICollection<Rent> Rent { get; set; }
-        public virtual ICollection<RentPayment> RentPayment { get; set; }
+        public ICollection<Rent> Rent { get; set; }
+        public ICollection<RentPayment> RentPayment { get; set; }
     }
 }

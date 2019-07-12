@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using BionicRent.Application.CustomerPayments.Commands.CreateCommand;
 using BionicRent.Application.CustomerPayments.Commands.DeleteCommand;
 using BionicRent.Application.CustomerPayments.Models;
+using BionicRent.Application.CustomerPayments.Queries.GetPayment;
 using BionicRent.Application.CustomerPayments.Queries.GetPaymentsList;
 using BionicRent.Application.Models;
 using MediatR;
@@ -29,6 +30,12 @@ namespace BionicRent.Api.Controllers.CustomerPayments {
         [HttpGet ("unpaid/{customerId}")]
         public async Task<ActionResult<IEnumerable<UnpaidCustomerRentModel>>> GetUnpaidCustomerPaymnets (uint customerId) {
             var result = await _Mediator.Send (new GetUnpaidCustomerRentsQuery () { CustomerId = customerId });
+            return Ok (result);
+        }
+
+        [HttpGet ("{id}")]
+        public async Task<ActionResult<IEnumerable<UnpaidCustomerRentModel>>> GetCustomerPaymnets (uint id) {
+            var result = await _Mediator.Send (new GetCustomerPaymentQuery () { Id = id });
             return Ok (result);
         }
 

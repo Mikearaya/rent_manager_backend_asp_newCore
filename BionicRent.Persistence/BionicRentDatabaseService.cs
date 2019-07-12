@@ -20,13 +20,7 @@ namespace BionicRent.Persistence {
         public DbSet<RentCondition> VehicleCondition { get; set; }
         public DbSet<VehicleOwner> VehicleOwner { get; set; }
         public DbSet<SystemLookup> SystemLookup { get; set; }
-        public new DbSet<RoleClaims> RoleClaims { get; set; }
-        public new DbSet<ApplicationRole> Roles { get; set; }
-        public new DbSet<UserClaims> UserClaims { get; set; }
-        public new DbSet<UserLogins> UserLogins { get; set; }
-        public new DbSet<UserRoles> UserRoles { get; set; }
-        public new DbSet<ApplicationUser> Users { get; set; }
-        public new DbSet<UserTokens> UserTokens { get; set; }
+
         public void Save () {
             this.SaveChanges ();
         }

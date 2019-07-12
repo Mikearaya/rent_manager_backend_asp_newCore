@@ -28,7 +28,6 @@ namespace BionicRent.Application.Users.Commands.UpdateUser {
 
         public async Task<Unit> Handle (UpdateUserCommand request, CancellationToken cancellationToken) {
             var user = await _userManager.Users
-                .Include (u => u.UserRoles.FirstOrDefault ())
                 .FirstOrDefaultAsync (u => u.Id == request.Id);
 
             if (user == null) {
