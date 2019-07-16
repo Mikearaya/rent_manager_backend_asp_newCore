@@ -168,7 +168,7 @@ namespace BionicRent.Api.Controllers.Security {
             } catch (Exception ex) {
                 throw new Exception ("Exception trying toretrive user claims", ex);
             }
-            Console.WriteLine (list.Count ());
+
             return list;
         }
 

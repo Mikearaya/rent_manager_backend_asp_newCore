@@ -61,7 +61,7 @@ namespace BionicRent.Application.Security {
             ret.IsAuthenticated = true;
             ret.BearerToken = new Guid ().ToString ();
 
-            claims = GetUserClaims (authUser);
+            ret.Claims = GetUserClaims (authUser);
 
             foreach (RoleClaims claim in claims) {
 
