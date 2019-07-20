@@ -153,10 +153,6 @@ namespace BionicRent.Api.Controllers.Security {
             List<RoleClaims> list = new List<RoleClaims> ();
 
             try {
-                /* 
-                                list = _database.Users
-                                    .Where (u => u.UserId == authUser.Id)
-                                    .ToList (); */
 
                 list = (from a in _database.UserRoles.Where (a => a.UserId == authUser.Id) join role in _database.Roles on a.RoleId equals role.Id join roleClaim in _database.RoleClaims on role.Id equals roleClaim.RoleId select new RoleClaims {
                         ClaimType = roleClaim.ClaimType,
